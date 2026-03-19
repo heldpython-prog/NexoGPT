@@ -631,7 +631,9 @@ input,select,textarea,button{font-family:'Google Sans','Roboto','Segoe UI',syste
   <div style="background:var(--a06);border:1px solid var(--a15);border-radius:var(--r-sm);padding:12px 14px;font-size:12.5px;color:var(--t2);line-height:1.7;margin-bottom:16px">All providers below are <strong style="color:var(--a)">completely free</strong>. Add keys from multiple accounts to prevent mid-conversation rate limits. Keys are stored locally in your browser only.</div>
   <div style="margin-bottom:18px"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><div><div style="font-size:13px;font-weight:700;color:var(--t1)">Groq <span style="font-size:10px;font-weight:600;color:#f97316;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.2);padding:2px 8px;border-radius:4px;margin-left:6px">Recommended</span></div><div style="font-size:11px;color:var(--t3);margin-top:2px">Free · 30 req/min · Llama 3.3 70B · <a href="https://console.groq.com/keys" target="_blank" style="color:var(--a)">Get key →</a></div></div><span id="groq-key-count" style="font-size:11px;color:var(--a);font-weight:600"></span></div><div style="display:flex;gap:8px"><input id="groq-key-in" type="password" placeholder="gsk_..." style="flex:1;background:var(--s2);border:1px solid var(--bd2);border-radius:var(--r-sm);color:var(--t1);font-size:13px;padding:9px 12px;outline:none;font-family:monospace" autocomplete="off"/><button onclick="addKeyFromInput('groq','groq-key-in')" style="padding:9px 16px;border-radius:var(--r-sm);border:none;background:var(--a);color:#052e16;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap">Add</button></div><div id="groq-keys-list" style="margin-top:8px"></div></div>
   <div style="margin-bottom:18px"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><div><div style="font-size:13px;font-weight:700;color:var(--t1)">Google Gemini <span style="font-size:10px;font-weight:600;color:#06b6d4;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);padding:2px 8px;border-radius:4px;margin-left:6px">Fallback</span></div><div style="font-size:11px;color:var(--t3);margin-top:2px">Free · 15 req/min · Gemini 1.5 Flash · <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--a)">Get key →</a></div></div><span id="gemini-key-count" style="font-size:11px;color:var(--a);font-weight:600"></span></div><div style="display:flex;gap:8px"><input id="gemini-key-in" type="password" placeholder="AIza..." style="flex:1;background:var(--s2);border:1px solid var(--bd2);border-radius:var(--r-sm);color:var(--t1);font-size:13px;padding:9px 12px;outline:none;font-family:monospace" autocomplete="off"/><button onclick="addKeyFromInput('gemini','gemini-key-in')" style="padding:9px 16px;border-radius:var(--r-sm);border:none;background:var(--a);color:#052e16;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap">Add</button></div><div id="gemini-keys-list" style="margin-top:8px"></div></div>
-  <div><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><div><div style="font-size:13px;font-weight:700;color:var(--t1)">OpenRouter <span style="font-size:10px;font-weight:600;color:#8b5cf6;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.2);padding:2px 8px;border-radius:4px;margin-left:6px">Extra fallback</span></div><div style="font-size:11px;color:var(--t3);margin-top:2px">Free models · 20 req/min · <a href="https://openrouter.ai/keys" target="_blank" style="color:var(--a)">Get key →</a></div></div><span id="or-key-count" style="font-size:11px;color:var(--a);font-weight:600"></span></div><div style="display:flex;gap:8px"><input id="or-key-in" type="password" placeholder="sk-or-..." style="flex:1;background:var(--s2);border:1px solid var(--bd2);border-radius:var(--r-sm);color:var(--t1);font-size:13px;padding:9px 12px;outline:none;font-family:monospace" autocomplete="off"/><button onclick="addKeyFromInput('openrouter','or-key-in')" style="padding:9px 16px;border-radius:var(--r-sm);border:none;background:var(--a);color:#052e16;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap">Add</button></div><div id="or-keys-list" style="margin-top:8px"></div></div>
+  <div style="margin-bottom:18px"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><div><div style="font-size:13px;font-weight:700;color:var(--t1)">OpenRouter <span style="font-size:10px;font-weight:600;color:#8b5cf6;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.2);padding:2px 8px;border-radius:4px;margin-left:6px">Extra fallback</span></div><div style="font-size:11px;color:var(--t3);margin-top:2px">Free models · 20 req/min · <a href="https://openrouter.ai/keys" target="_blank" style="color:var(--a)">Get key →</a></div></div><span id="or-key-count" style="font-size:11px;color:var(--a);font-weight:600"></span></div><div style="display:flex;gap:8px"><input id="or-key-in" type="password" placeholder="sk-or-..." style="flex:1;background:var(--s2);border:1px solid var(--bd2);border-radius:var(--r-sm);color:var(--t1);font-size:13px;padding:9px 12px;outline:none;font-family:monospace" autocomplete="off"/><button onclick="addKeyFromInput('openrouter','or-key-in')" style="padding:9px 16px;border-radius:var(--r-sm);border:none;background:var(--a);color:#052e16;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap">Add</button></div><div id="or-keys-list" style="margin-top:8px"></div></div>
+  <!-- DeepSeek section -->
+  <div style="margin-bottom:18px"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><div><div style="font-size:13px;font-weight:700;color:var(--t1)">DeepSeek <span style="font-size:10px;font-weight:600;color:#4d6bfe;background:rgba(77,107,254,.1);border:1px solid rgba(77,107,254,.2);padding:2px 8px;border-radius:4px;margin-left:6px">Powerful</span></div><div style="font-size:11px;color:var(--t3);margin-top:2px">DeepSeek Chat · <a href="https://platform.deepseek.com/api_keys" target="_blank" style="color:var(--a)">Get key →</a></div></div><span id="deepseek-key-count" style="font-size:11px;color:var(--a);font-weight:600"></span></div><div style="display:flex;gap:8px"><input id="deepseek-key-in" type="password" placeholder="sk-..." style="flex:1;background:var(--s2);border:1px solid var(--bd2);border-radius:var(--r-sm);color:var(--t1);font-size:13px;padding:9px 12px;outline:none;font-family:monospace" autocomplete="off"/><button onclick="addKeyFromInput('deepseek','deepseek-key-in')" style="padding:9px 16px;border-radius:var(--r-sm);border:none;background:var(--a);color:#052e16;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap">Add</button></div><div id="deepseek-keys-list" style="margin-top:8px"></div></div>
 </div><div class="modal-footer"><button class="modal-btn primary" onclick="closeModal('modal-apikeys')">Done</button></div></div></div>
 <div id="screen-login" class="screen vcenter on">
   <div class="lw"><div class="lcard">
@@ -734,7 +736,8 @@ input,select,textarea,button{font-family:'Google Sans','Roboto','Segoe UI',syste
   <h3>AI Provider Keys</h3>
   <div class="info-box" style="margin-bottom:14px;font-size:12px;line-height:1.7">These keys power all users. Add multiple to prevent rate limits.<br>
   <a href="https://console.groq.com/keys" target="_blank" style="color:var(--a)">Groq (free)</a> &nbsp;·&nbsp;
-  <a href="https://openrouter.ai/keys" target="_blank" style="color:var(--a)">OpenRouter (free)</a></div>
+  <a href="https://openrouter.ai/keys" target="_blank" style="color:var(--a)">OpenRouter (free)</a> &nbsp;·&nbsp;
+  <a href="https://platform.deepseek.com/api_keys" target="_blank" style="color:var(--a)">DeepSeek</a></div>
   <div id="dev-provider-keys"></div>
 </div>
 
@@ -770,9 +773,8 @@ input,select,textarea,button{font-family:'Google Sans','Roboto','Segoe UI',syste
   <div class="chat-main">
     <div class="topbar">
       <div class="tb-left">
-        <!-- Removed inline onclick, will be handled by script at bottom -->
         <button class="tb-menu"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-        <div style="position:relative"><button class="m-pill" id="m-pill-btn"><span class="live-dot"></span><span id="m-label">NA Track</span><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="m-drop" id="m-drop" style="display:none"></div></div>
+        <div style="position:relative"><button class="m-pill" id="m-pill-btn"><span class="live-dot"></span><span id="m-label">Spark</span><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="m-drop" id="m-drop" style="display:none"></div></div>
         <button class="chat-prompt-badge" id="chat-prompt-badge" onclick="openChatPrompt()"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Prompt</button>
       </div>
       <div class="tb-right">
@@ -851,19 +853,106 @@ function showToast(msg,dur){var t=document.getElementById('toast');t.innerHTML=m
 function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function todayKey(){return 'ngpt_u_'+new Date().toISOString().slice(0,10);}
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
-var PROVIDERS={groq:{name:'Groq',url:'https://api.groq.com/openai/v1/chat/completions',format:'openai'},gemini:{name:'Gemini',url:'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent',format:'gemini'},openrouter:{name:'OpenRouter',url:'https://openrouter.ai/api/v1/chat/completions',format:'openai'}};
-function _gk(){return '';}var _keyState={groq:{keys:[],idx:0,cooldowns:{}},gemini:{keys:[],idx:0,cooldowns:{}},openrouter:{keys:[],idx:0,cooldowns:{}}};var _builtinKeys={groq:[],openrouter:[]};
-function loadProviderKeys(){try{var stored=JSON.parse(localStorage.getItem('ngpt_provider_keys')||'{}');['groq','gemini','openrouter'].forEach(function(p){var keys=stored[p]||[];if(typeof keys==='string')keys=[keys];_keyState[p].keys=keys.filter(function(k){return k&&k.trim();});});}catch(e){}['groq','gemini','openrouter'].forEach(function(p){if(_builtinKeys[p])_builtinKeys[p].forEach(function(k){if(_keyState[p].keys.indexOf(k)===-1)_keyState[p].keys.push(k);});});}
-function saveProviderKeys(){var out={};['groq','gemini','openrouter'].forEach(function(p){out[p]=_keyState[p].keys;});localStorage.setItem('ngpt_provider_keys',JSON.stringify(out));var u=localStorage.getItem('ngpt_user');if(u){try{localStorage.setItem('ngpt_ukeys_'+btoa(u),JSON.stringify(out));}catch(e){}}}function restoreUserKeys(email){try{var saved=localStorage.getItem('ngpt_ukeys_'+btoa(email));if(!saved)return;var out=JSON.parse(saved);['groq','gemini','openrouter'].forEach(function(p){if(out[p]&&out[p].length)out[p].forEach(function(k){if(k&&_keyState[p].keys.indexOf(k)===-1)_keyState[p].keys.push(k);});});saveProviderKeys();}catch(e){}}
-function addProviderKey(provider,key){key=key.trim();if(!key)return false;if(_keyState[provider].keys.indexOf(key)!==-1)return false;_keyState[provider].keys.push(key);saveProviderKeys();return true;}
-function removeProviderKey(provider,idx){_keyState[provider].keys.splice(idx,1);if(_keyState[provider].idx>=_keyState[provider].keys.length){_keyState[provider].idx=0;}saveProviderKeys();}
-function getNextKey(provider){var state=_keyState[provider];if(!state.keys.length)return null;var now=Date.now();for(var i=0;i<state.keys.length;i++){var ki=(state.idx+i)%state.keys.length;var key=state.keys[ki];var cd=state.cooldowns[key]||0;if(now>=cd){state.idx=(ki+1)%state.keys.length;return key;}}var best=state.keys[0],bestCd=state.cooldowns[state.keys[0]]||0;state.keys.forEach(function(k){var c=state.cooldowns[k]||0;if(c<bestCd){best=k;bestCd=c;}});return best;}
+var PROVIDERS={
+  groq:{name:'Groq',url:'https://api.groq.com/openai/v1/chat/completions',format:'openai'},
+  gemini:{name:'Gemini',url:'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent',format:'gemini'},
+  openrouter:{name:'OpenRouter',url:'https://openrouter.ai/api/v1/chat/completions',format:'openai'},
+  deepseek:{name:'DeepSeek',url:'https://api.deepseek.com/v1/chat/completions',format:'openai'}
+};
+function _gk(){return '';}
+var _keyState={
+  groq:{keys:[],idx:0,cooldowns:{}},
+  gemini:{keys:[],idx:0,cooldowns:{}},
+  openrouter:{keys:[],idx:0,cooldowns:{}},
+  deepseek:{keys:[],idx:0,cooldowns:{}}
+};
+var _builtinKeys={groq:[],openrouter:[]};
+function loadProviderKeys(){
+  try{
+    var stored=JSON.parse(localStorage.getItem('ngpt_provider_keys')||'{}');
+    ['groq','gemini','openrouter','deepseek'].forEach(function(p){
+      var keys=stored[p]||[];
+      if(typeof keys==='string')keys=[keys];
+      _keyState[p].keys=keys.filter(function(k){return k&&k.trim();});
+    });
+  }catch(e){}
+  ['groq','gemini','openrouter','deepseek'].forEach(function(p){
+    if(_builtinKeys[p])_builtinKeys[p].forEach(function(k){
+      if(_keyState[p].keys.indexOf(k)===-1)_keyState[p].keys.push(k);
+    });
+  });
+}
+function saveProviderKeys(){
+  var out={};
+  ['groq','gemini','openrouter','deepseek'].forEach(function(p){
+    out[p]=_keyState[p].keys;
+  });
+  localStorage.setItem('ngpt_provider_keys',JSON.stringify(out));
+  var u=localStorage.getItem('ngpt_user');
+  if(u){
+    try{
+      localStorage.setItem('ngpt_ukeys_'+btoa(u),JSON.stringify(out));
+    }catch(e){}
+  }
+}
+function restoreUserKeys(email){
+  try{
+    var saved=localStorage.getItem('ngpt_ukeys_'+btoa(email));
+    if(!saved)return;
+    var out=JSON.parse(saved);
+    ['groq','gemini','openrouter','deepseek'].forEach(function(p){
+      if(out[p]&&out[p].length)out[p].forEach(function(k){
+        if(k&&_keyState[p].keys.indexOf(k)===-1)_keyState[p].keys.push(k);
+      });
+    });
+    saveProviderKeys();
+  }catch(e){}
+}
+function addProviderKey(provider,key){
+  key=key.trim();
+  if(!key)return false;
+  if(_keyState[provider].keys.indexOf(key)!==-1)return false;
+  _keyState[provider].keys.push(key);
+  saveProviderKeys();
+  return true;
+}
+function removeProviderKey(provider,idx){
+  _keyState[provider].keys.splice(idx,1);
+  if(_keyState[provider].idx>=_keyState[provider].keys.length){
+    _keyState[provider].idx=0;
+  }
+  saveProviderKeys();
+}
+function getNextKey(provider){
+  var state=_keyState[provider];
+  if(!state.keys.length)return null;
+  var now=Date.now();
+  for(var i=0;i<state.keys.length;i++){
+    var ki=(state.idx+i)%state.keys.length;
+    var key=state.keys[ki];
+    var cd=state.cooldowns[key]||0;
+    if(now>=cd){
+      state.idx=(ki+1)%state.keys.length;
+      return key;
+    }
+  }
+  var best=state.keys[0],bestCd=state.cooldowns[state.keys[0]]||0;
+  state.keys.forEach(function(k){
+    var c=state.cooldowns[k]||0;
+    if(c<bestCd){
+      best=k;
+      bestCd=c;
+    }
+  });
+  return best;
+}
 function cooldownKey(provider,key,ms){_keyState[provider].cooldowns[key]=Date.now()+(ms||60000);}
 var ALL_MODELS=[
-{id:'spark',name:'Spark',desc:'Fast · everyday tasks · instant',color:'#6ee7b7',provider:'groq',modelId:'llama-3.3-70b-versatile',badge:'Free'},
-{id:'nova',name:'Nova',desc:'Smart & balanced · great for most tasks',color:'#60a5fa',provider:'groq',modelId:'llama-3.3-70b-versatile',badge:'Pro'},
-{id:'nexus',name:'Nexus',desc:'Deep reasoning · long context · analysis',color:'#a78bfa',provider:'groq',modelId:'llama-3.3-70b-versatile',badge:'Business'},
-{id:'titan',name:'Titan',desc:'Maximum quality · best responses',color:'#f97316',provider:'groq',modelId:'llama-3.3-70b-versatile',badge:'Empire'}
+  {id:'spark',name:'Spark',desc:'Fast · everyday tasks · instant',color:'#6ee7b7',provider:'groq',modelId:'llama-3.3-70b-versatile',badge:'Free'},
+  {id:'nova',name:'Nova',desc:'Smart & balanced · great for most tasks',color:'#60a5fa',provider:'groq',modelId:'llama-3.3-70b-versatile',badge:'Pro'},
+  {id:'nexus',name:'Nexus',desc:'Deep reasoning · long context · analysis',color:'#a78bfa',provider:'groq',modelId:'llama-3.3-70b-versatile',badge:'Business'},
+  {id:'titan',name:'Titan',desc:'Maximum quality · best responses',color:'#f97316',provider:'groq',modelId:'llama-3.3-70b-versatile',badge:'Empire'},
+  {id:'deepseek',name:'DeepSeek',desc:'Powerful reasoning · deep thinker',color:'#4d6bfe',provider:'deepseek',modelId:'deepseek-chat',badge:'New'}
 ];
 var PLANS={
 free:{name:'Free',price:'$0 / mo',color:'#6ee7b7',textColor:'#065f46',limit:15,model:'spark',badge:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>',tagline:'Get started'},
@@ -952,13 +1041,16 @@ async function streamPollinations(msgs,system,maxTok,onChunk){
   throw lastErr||new Error('Pollinations unavailable');
 }
 async function callAI(msgs,modelCfg,system,maxTok,onToken,onDone,onError){
-  // Build provider priority list
+  // Build provider priority list: try the configured provider first, then groq, deepseek, openrouter, gemini
   var provOrder=[];
   if(modelCfg&&modelCfg.provider&&modelCfg.provider!=='pollinations'){
     provOrder.push(modelCfg.provider);
-    ['groq','openrouter','gemini'].forEach(function(p){if(p!==modelCfg.provider)provOrder.push(p);});
+    // Add other providers as fallbacks
+    ['groq','deepseek','openrouter','gemini'].forEach(function(p){
+      if(p!==modelCfg.provider) provOrder.push(p);
+    });
   }else{
-    provOrder=['groq','openrouter','gemini'];
+    provOrder=['groq','deepseek','openrouter','gemini'];
   }
 
   var networkBlocked=false;
@@ -978,6 +1070,7 @@ async function callAI(msgs,modelCfg,system,maxTok,onToken,onDone,onError){
       var key=keysToTry[ki];
       var mid=modelCfg&&modelCfg.provider===prov?modelCfg.modelId
         :prov==='groq'?'llama-3.3-70b-versatile'
+        :prov==='deepseek'?'deepseek-chat'
         :prov==='openrouter'?'meta-llama/llama-3.3-70b-instruct:free'
         :'gemini-1.5-flash';
       try{
@@ -1043,7 +1136,7 @@ async function callAI(msgs,modelCfg,system,maxTok,onToken,onDone,onError){
 
   onError('__ERR__All providers are temporarily unavailable. Please add a free Groq API key in Settings → API Keys for reliable responses.');
 }
-function getDefaultModelForProvider(prov){var defaults={groq:'llama-3.3-70b-versatile',gemini:'gemini-1.5-flash',openrouter:'meta-llama/llama-3.3-70b-instruct:free'};return defaults[prov]||null;}
+function getDefaultModelForProvider(prov){var defaults={groq:'llama-3.3-70b-versatile',gemini:'gemini-1.5-flash',openrouter:'meta-llama/llama-3.3-70b-instruct:free',deepseek:'deepseek-chat'};return defaults[prov]||null;}
 function buildOpenAIMsgs(msgs,system){var out=[{role:'system',content:system}];var stripped=stripOldImages(msgs);stripped.forEach(function(m){if(m.abSide==='B')return;if(m.role==='user'){var hasImg=m.imgs&&m.imgs.length;if(hasImg){var parts=[];if(m.content)parts.push({type:'text',text:m.content});m.imgs.forEach(function(im){parts.push({type:'image_url',image_url:{url:im.url}});});if(m.pdfs)m.pdfs.forEach(function(pdf){parts.push({type:'text',text:'[PDF: '+pdf.name+']\n'+pdf.text});});out.push({role:'user',content:parts});}else{var content=m.content||'(empty)';if(m.pdfs&&m.pdfs.length){content=m.pdfs.map(function(p){return '[PDF: '+p.name+']\n'+p.text;}).join('\n\n')+(m.content?'\n\n'+m.content:'');}out.push({role:'user',content:content.trim()});}}else if(m.role==='assistant'){var c=(m.content||'').trim();if(!c||/^__\w+__/.test(c))return;if(c.startsWith('__PAUSED__'))c=c.slice(9).trim()||'[paused]';out.push({role:'assistant',content:c});}});var cleaned=[out[0]];for(var i=1;i<out.length;i++){var last=cleaned[cleaned.length-1];if(last.role===out[i].role&&out[i].role!=='system'){if(typeof last.content==='string'&&typeof out[i].content==='string'){cleaned[cleaned.length-1]={role:last.role,content:last.content+'\n'+out[i].content};}else{cleaned.push(out[i]);}}else{cleaned.push(out[i]);}}while(cleaned.length>1&&cleaned[cleaned.length-1].role!=='user')cleaned.pop();return trimContextOpenAI(cleaned,90000);}
 function trimContextOpenAI(msgs,maxTok){if(!msgs||msgs.length<=1)return msgs;function est(ms){return ms.reduce(function(a,m){var t=typeof m.content==='string'?m.content:JSON.stringify(m.content||'');return a+Math.ceil(t.length/3.5);},0);}while(msgs.length>2&&est(msgs)>maxTok)msgs.splice(1,1);return msgs;}
 function buildRLHtml(msg){var inner=msg.replace('__RATELIMIT__','');var parts=inner.split('||');var text=parts[0]||'Rate limit reached.';var rt=parts[1]?parseInt(parts[1]):0;var resetStr=rt?fmtReset(rt):'shortly';return '<div class="ratelimit-msg"><div style="font-size:18px;flex-shrink:0"></div><div><strong>Rate Limited</strong><div>'+escHtml(text)+'</div><div class="rl-timer">Resets '+escHtml(resetStr)+'</div><div style="margin-top:8px;font-size:12px;color:var(--t2)">Tip: Add more free keys in <button onclick="openKeysModal()" style="background:none;border:none;color:var(--a);cursor:pointer;font-size:12px;padding:0;text-decoration:underline">Settings  API Keys</button> to avoid this.</div></div></div>';}
@@ -1542,9 +1635,9 @@ function pickDomains(){return SDPOOL.slice().sort(function(){return Math.random(
 function startDomainAnim(){stopDomainAnim();_litIdx=0;_dTimer=setInterval(function(){var c=document.getElementById('search-domains-container');if(!c){stopDomainAnim();return;}var sites=c.querySelectorAll('.search-site');sites.forEach(function(s,i){s.classList.toggle('lit',i===_litIdx);});_litIdx=(_litIdx+1)%Math.max(1,sites.length);},300);}
 function stopDomainAnim(){if(_dTimer){clearInterval(_dTimer);_dTimer=null;}}
 function go(name){['login','plans','dev','chat'].forEach(function(s){var el=document.getElementById('screen-'+s);if(el){el.style.display='none';el.classList.remove('on');}});var t=document.getElementById('screen-'+name);if(!t)return;t.style.display='flex';requestAnimationFrame(function(){t.classList.add('on');});closeAllDrops();if(name==='chat')renderChat();if(name==='plans')renderPlans();if(name==='dev')renderDev();}
-function openKeysModal(){loadProviderKeys();renderKeysList('groq','groq-keys-list','groq-key-count');renderKeysList('gemini','gemini-keys-list','gemini-key-count');renderKeysList('openrouter','or-keys-list','or-key-count');openModal('modal-apikeys');}
+function openKeysModal(){loadProviderKeys();renderKeysList('groq','groq-keys-list','groq-key-count');renderKeysList('gemini','gemini-keys-list','gemini-key-count');renderKeysList('openrouter','or-keys-list','or-key-count');renderKeysList('deepseek','deepseek-keys-list','deepseek-key-count');openModal('modal-apikeys');}
 function renderKeysList(prov,listId,countId){var list=document.getElementById(listId);var countEl=document.getElementById(countId);var keys=_keyState[prov].keys;if(countEl)countEl.textContent=keys.length?keys.length+' key'+(keys.length>1?'s':'')+' added':'';if(!list)return;if(!keys.length){list.innerHTML='';return;}list.innerHTML='';keys.forEach(function(k,i){var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:8px;padding:6px 10px;background:var(--s2);border:1px solid var(--bd);border-radius:var(--r-sm);margin-bottom:4px;';var now=Date.now();var cd=_keyState[prov].cooldowns[k]||0;var onCooldown=cd>now;var dot=document.createElement('span');dot.style.cssText='width:7px;height:7px;border-radius:50%;flex-shrink:0;background:'+(onCooldown?'#f59e0b':'#22c55e');dot.title=onCooldown?'Rate limited':'Active';var ktext=document.createElement('span');ktext.style.cssText='font-family:monospace;font-size:11.5px;color:var(--t2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';ktext.textContent=k.slice(0,8)+'...'+k.slice(-4);var del=document.createElement('button');del.style.cssText='background:none;border:none;color:var(--t3);cursor:pointer;font-size:13px;padding:2px 6px;border-radius:4px;';del.innerHTML='\u2715';del.addEventListener('click',function(){removeProviderKey(prov,i);renderKeysList(prov,listId,countId);});del.onmouseover=function(){this.style.color='#f87171';};del.onmouseout=function(){this.style.color='var(--t3)';};row.appendChild(dot);row.appendChild(ktext);row.appendChild(del);list.appendChild(row);});}
-function addKeyFromInput(prov,inputId){var input=document.getElementById(inputId);if(!input||!input.value.trim())return;var added=addProviderKey(prov,input.value.trim());if(added){input.value='';var listIds={groq:'groq-keys-list',gemini:'gemini-keys-list',openrouter:'or-keys-list'};var cntIds={groq:'groq-key-count',gemini:'gemini-key-count',openrouter:'or-key-count'};renderKeysList(prov,listIds[prov],cntIds[prov]);showToast('Key added!');renderChat();}else{showToast('Key already added or invalid');}}
+function addKeyFromInput(prov,inputId){var input=document.getElementById(inputId);if(!input||!input.value.trim())return;var added=addProviderKey(prov,input.value.trim());if(added){input.value='';var listIds={groq:'groq-keys-list',gemini:'gemini-keys-list',openrouter:'or-keys-list',deepseek:'deepseek-keys-list'};var cntIds={groq:'groq-key-count',gemini:'gemini-key-count',openrouter:'or-key-count',deepseek:'deepseek-key-count'};renderKeysList(prov,listIds[prov],cntIds[prov]);showToast('Key added!');renderChat();}else{showToast('Key already added or invalid');}}
 function boot(){if(!localStorage.getItem('ngpt_v10')){localStorage.removeItem('ngpt_provider_keys');localStorage.removeItem('ngpt_model');localStorage.setItem('ngpt_v10','1');}loadProviderKeys();var lastE=localStorage.getItem('ngpt_last_email');if(lastE){var ef=document.getElementById('signin-email');if(ef)ef.value=lastE;}if(isSessionValid()){S.user=localStorage.getItem('ngpt_user')||'';try{var p2=JSON.parse(localStorage.getItem('ngpt_personas')||'["engineer"]');S.personas=Array.isArray(p2)?p2:['engineer'];}catch(e){S.personas=['engineer'];}
 S.mode=localStorage.getItem('ngpt_mode')||'standard';
 // Assign correct model for plan if not already set
@@ -1581,7 +1674,13 @@ function choosePlan(key){S.plan=key;var p=PLANS[key];if(p&&p.model){S.model=p.mo
 function doPlansRedeem(){var inp=document.getElementById('plans-key-in');var msgEl=document.getElementById('plans-redeem-msg');var k=(inp?inp.value:'').trim().toUpperCase();if(!k){msgEl.textContent='Enter a key first.';msgEl.style.color='#f87171';return;}if(k===_k.toUpperCase()){S.plan='dev';S.hasKey=true;save();localStorage.setItem('ngpt_isdev','1');localStorage.setItem('ngpt_haskey','1');msgEl.textContent='Developer access activated! Taking you to the dashboard…';msgEl.style.color='#34d399';if(inp)inp.value='';setTimeout(function(){go('dev');var upgBtn=document.getElementById('upgrade-plan-btn');if(upgBtn)upgBtn.style.display='none';},900);return;}var keys=getDevKeys();var found=null;keys.forEach(function(x){if(x.key.toUpperCase()===k&&!x.used)found=x;});if(found){found.used=true;found.usedBy=S.user;found.usedAt=new Date().toISOString();setDevKeys(keys);S.plan=found.plan;var planName=(PLANS[found.plan]&&PLANS[found.plan].name)||found.plan;if(PLANS[found.plan]&&PLANS[found.plan].model)S.model=PLANS[found.plan].model;S.hasKey=true;save();localStorage.setItem('ngpt_haskey','1');msgEl.textContent=planName+' plan activated! 🎉';msgEl.style.color='#34d399';if(inp)inp.value='';setTimeout(function(){go('chat');showToast(planName+' plan is now active!');var upgBtn=document.getElementById('upgrade-plan-btn');if(upgBtn&&(found.plan==='empire'||found.plan==='dev'))upgBtn.style.display='none';},1000);return;}var used=keys.filter(function(x){return x.key.toUpperCase()===k&&x.used;});msgEl.textContent=used.length?'This key has already been used.':'Invalid key. Please check and try again.';msgEl.style.color='#f87171';}
 function doRedeem(){doPlansRedeem();}
 function permanentlyHideRedeem(){localStorage.setItem('ngpt_haskey','1');S.hasKey=true;}
-function renderDevProviderKeys(){var wrap=document.getElementById('dev-provider-keys');if(!wrap)return;var provs=[{id:'groq',label:'Groq',ph:'gsk_...',color:'#f97316'},{id:'gemini',label:'Gemini',ph:'AIza...',color:'#06b6d4'},{id:'openrouter',label:'OpenRouter',ph:'sk-or-...',color:'#8b5cf6'}];wrap.innerHTML='';provs.forEach(function(prov){var state=_keyState[prov.id];var keys=state.keys;var now=Date.now();var section=document.createElement('div');section.style.marginBottom='14px';var hdr=document.createElement('div');hdr.style.cssText='display:flex;align-items:center;gap:8px;margin-bottom:6px;';hdr.innerHTML='<span style="font-size:12px;font-weight:700;color:'+prov.color+'">'+prov.label+'</span><span style="font-size:10.5px;color:var(--t3)">'+keys.length+' key'+(keys.length!==1?'s':'')+' \xB7 '+keys.filter(function(k){return(state.cooldowns[k]||0)<=now;}).length+' active</span>';section.appendChild(hdr);keys.forEach(function(k,i){var cd=state.cooldowns[k]||0;var hot=cd>now;(function(ki,kv,khot){var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:6px;margin-bottom:4px;';var dot=document.createElement('span');dot.style.cssText='width:7px;height:7px;border-radius:50%;flex-shrink:0;display:inline-block;background:'+(khot?'#f59e0b':'#22c55e');var kspan=document.createElement('span');kspan.style.cssText='font-family:monospace;font-size:11px;color:var(--t2);flex:1';kspan.textContent=kv.slice(0,10)+'...'+kv.slice(-4);var delbtn=document.createElement('button');delbtn.style.cssText='background:none;border:none;color:var(--t3);cursor:pointer;padding:2px 6px;font-size:12px;';delbtn.textContent='\u2715';delbtn.onmouseover=function(){this.style.color='#f87171';};delbtn.onmouseout=function(){this.style.color='var(--t3)';};delbtn.addEventListener('click',function(){removeProviderKey(prov.id,ki);renderDevProviderKeys();});row.appendChild(dot);row.appendChild(kspan);row.appendChild(delbtn);section.appendChild(row);})(i,k,hot);});var addRow=document.createElement('div');addRow.style.cssText='display:flex;gap:6px;';var inp=document.createElement('input');inp.type='password';inp.placeholder=prov.ph;inp.id='devkey-'+prov.id;inp.style.cssText='flex:1;background:var(--s2);border:1px solid var(--bd2);border-radius:var(--r-sm);color:var(--t1);font-size:12px;padding:7px 10px;outline:none;font-family:monospace;';inp.addEventListener('keydown',function(e){if(e.key==='Enter')addDevKey(prov.id);});var btn=document.createElement('button');btn.className='dbtn';btn.textContent='+ Add';btn.style.padding='7px 14px';btn.addEventListener('click',function(){addDevKey(prov.id);});addRow.appendChild(inp);addRow.appendChild(btn);section.appendChild(addRow);wrap.appendChild(section);});}
+function renderDevProviderKeys(){var wrap=document.getElementById('dev-provider-keys');if(!wrap)return;var provs=[
+  {id:'groq',label:'Groq',ph:'gsk_...',color:'#f97316'},
+  {id:'gemini',label:'Gemini',ph:'AIza...',color:'#06b6d4'},
+  {id:'openrouter',label:'OpenRouter',ph:'sk-or-...',color:'#8b5cf6'},
+  {id:'deepseek',label:'DeepSeek',ph:'sk-...',color:'#4d6bfe'}
+];
+wrap.innerHTML='';provs.forEach(function(prov){var state=_keyState[prov.id];var keys=state.keys;var now=Date.now();var section=document.createElement('div');section.style.marginBottom='14px';var hdr=document.createElement('div');hdr.style.cssText='display:flex;align-items:center;gap:8px;margin-bottom:6px;';hdr.innerHTML='<span style="font-size:12px;font-weight:700;color:'+prov.color+'">'+prov.label+'</span><span style="font-size:10.5px;color:var(--t3)">'+keys.length+' key'+(keys.length!==1?'s':'')+' \xB7 '+keys.filter(function(k){return(state.cooldowns[k]||0)<=now;}).length+' active</span>';section.appendChild(hdr);keys.forEach(function(k,i){var cd=state.cooldowns[k]||0;var hot=cd>now;(function(ki,kv,khot){var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:6px;margin-bottom:4px;';var dot=document.createElement('span');dot.style.cssText='width:7px;height:7px;border-radius:50%;flex-shrink:0;display:inline-block;background:'+(khot?'#f59e0b':'#22c55e');var kspan=document.createElement('span');kspan.style.cssText='font-family:monospace;font-size:11px;color:var(--t2);flex:1';kspan.textContent=kv.slice(0,10)+'...'+kv.slice(-4);var delbtn=document.createElement('button');delbtn.style.cssText='background:none;border:none;color:var(--t3);cursor:pointer;padding:2px 6px;font-size:12px;';delbtn.textContent='\u2715';delbtn.onmouseover=function(){this.style.color='#f87171';};delbtn.onmouseout=function(){this.style.color='var(--t3)';};delbtn.addEventListener('click',function(){removeProviderKey(prov.id,ki);renderDevProviderKeys();});row.appendChild(dot);row.appendChild(kspan);row.appendChild(delbtn);section.appendChild(row);})(i,k,hot);});var addRow=document.createElement('div');addRow.style.cssText='display:flex;gap:6px;';var inp=document.createElement('input');inp.type='password';inp.placeholder=prov.ph;inp.id='devkey-'+prov.id;inp.style.cssText='flex:1;background:var(--s2);border:1px solid var(--bd2);border-radius:var(--r-sm);color:var(--t1);font-size:12px;padding:7px 10px;outline:none;font-family:monospace;';inp.addEventListener('keydown',function(e){if(e.key==='Enter')addDevKey(prov.id);});var btn=document.createElement('button');btn.className='dbtn';btn.textContent='+ Add';btn.style.padding='7px 14px';btn.addEventListener('click',function(){addDevKey(prov.id);});addRow.appendChild(inp);addRow.appendChild(btn);section.appendChild(addRow);wrap.appendChild(section);});}
 function addDevKey(provId){var inp=document.getElementById('devkey-'+provId);if(!inp||!inp.value.trim())return;var ok=addProviderKey(provId,inp.value.trim());if(ok){inp.value='';showToast('Key added!');renderDevProviderKeys();}else showToast('Duplicate or empty key');}
 function renderDev(){if(S.plan!=='dev'&&localStorage.getItem('ngpt_isdev')!=='1'){go('chat');return;}document.getElementById('dev-key-display').textContent=_k;var ds=document.getElementById('dev-session');if(ds)ds.innerHTML='User: <strong>'+escHtml(S.user)+'</strong><br>Plan: <strong>Dev (unlimited)</strong><br>Model: <strong>'+(ALL_MODELS.find(function(m){return m.id===S.model;})||{name:S.model}).name+'</strong><br>Messages today: <strong>'+S.used+'</strong>';renderKeysTable();renderDevProviderKeys();}
 function renderKeysTable(){var keys=getDevKeys();var wrap=document.getElementById('keys-table-wrap');var summary=document.getElementById('keys-summary');var active=keys.filter(function(k){return !k.used;}).length;var used=keys.filter(function(k){return k.used;}).length;if(summary)summary.textContent=keys.length+' total · '+active+' active · '+used+' redeemed';if(!wrap)return;if(!keys.length){wrap.innerHTML='<div style="text-align:center;color:var(--t3);font-size:13px;padding:24px 0">No keys generated yet.</div>';return;}var html='<table class="ktable"><thead><tr><th>Key</th><th>Plan</th><th>Status</th><th>Used by</th><th></th></tr></thead><tbody>';keys.forEach(function(k,i){var p=PLANS[k.plan]||{};var c=p.color||'#888';var statusColor=k.used?'#ef4444':'#22c55e';html+='<tr><td><span class="kv" onclick="copyText(getDevKeys()['+i+'].key,this)" title="Click to copy">'+escHtml(k.key.slice(0,18))+'…</span></td>';html+='<td><span class="kbadge" style="color:'+c+';background:'+c+'18;border:1px solid '+c+'33">'+escHtml(p.name||k.plan)+'</span></td>';html+='<td><span style="color:'+statusColor+';font-weight:700;font-size:11px;display:inline-flex;align-items:center;gap:4px"><span style="width:6px;height:6px;border-radius:50%;background:'+statusColor+';display:inline-block"></span>'+(k.used?'Redeemed':'Active')+'</span></td>';html+='<td style="font-size:11px;color:var(--t3);max-width:120px;overflow:hidden;text-overflow:ellipsis">'+escHtml(k.usedBy||'—')+'</td>';html+='<td><button class="kdel" title="Delete" onclick="var k2=getDevKeys();k2.splice('+i+',1);setDevKeys(k2);renderKeysTable()">✕</button></td></tr>';});wrap.innerHTML=html+'</tbody></table>';}
