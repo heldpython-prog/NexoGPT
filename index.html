@@ -928,7 +928,11 @@ async function streamPollinations(msgs,system,maxTok,onChunk){
       if(!content){lastErr=new Error('Empty');continue;}
       // Strip any Pollinations notices
       content = stripPollinationsNotice(content);
-
+      // If after stripping content becomes empty, treat as failure
+      if (!content.trim()) {
+        lastErr = new Error('Empty response after filtering');
+        continue;
+      }
       var words=content.split(' ');var acc='';
       for(var wi=0;wi<words.length;wi++){
         if(stopFlag)return{accumulated:acc};
