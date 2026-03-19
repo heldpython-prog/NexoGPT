@@ -1703,6 +1703,7 @@ function savePersona(){save();closeModal('modal-persona');showToast('Personas sa
 function renderPrompts(){var list=document.getElementById('prompt-list');if(!list)return;list.innerHTML='';DEF_PROMPTS.concat(_uPrompts).forEach(function(p){var card=document.createElement('div');card.className='prompt-card';card.innerHTML='<div class="prompt-card-title">'+escHtml(p.title)+'</div><div class="prompt-card-text">'+escHtml(p.text)+'</div>';card.addEventListener('click',function(){var ta=document.getElementById('msg-in');if(ta){ta.value=p.text;onTa(ta);ta.focus();}closeModal('modal-prompts');});list.appendChild(card);});}
 function addPrompt(){var title=prompt('Prompt title:');if(!title)return;var text=prompt('Prompt text:');if(!text)return;_uPrompts.push({id:'u'+Date.now(),title:title,text:text});localStorage.setItem('ngpt_prompts',JSON.stringify(_uPrompts));renderPrompts();}
 function openUsage(){var p=PLANS[S.plan]||PLANS.free;var body=document.getElementById('usage-body');var planColors={free:'#6ee7b7',pro:'#60a5fa',business:'#a78bfa',empire:'#f97316',dev:'#f97316'};body.innerHTML=['<div class="usage-stat"><span class="usage-stat-label">Plan</span><span class="usage-stat-val" style="color:'+(planColors[S.plan]||p.color)+'">'+escHtml(p.name)+'</span></div>','<div class="usage-stat"><span class="usage-stat-label">Messages today</span><span class="usage-stat-val">'+S.used+' / '+(p.limit>=999999?'∞':p.limit)+'</span></div>','<div class="usage-stat"><span class="usage-stat-label">Active model</span><span class="usage-stat-val" style="font-size:12px">'+(ALL_MODELS.find(function(m){return m.id===S.model;})||{name:S.model}).name+'</span></div>','<div class="usage-stat"><span class="usage-stat-label">Conversations</span><span class="usage-stat-val">'+S.chats.length+'</span></div>','<div class="usage-stat"><span class="usage-stat-label">Folders</span><span class="usage-stat-val">'+S.folders.length+'</span></div>'].join('');openModal('modal-usage');}
+// Enhanced system prompt for better focus
 function getModeSystem(mode,chatSysPrompt,searchContext){
 var now=new Date();
 var d='';
@@ -1729,14 +1730,19 @@ lang+searchBlock+'\n\n'+
 '  Message is fix it with no code -> Ask what to fix and to share the code.\n'+
 '  Message under 4 chars with no context -> Ask what they need.\n'+
 'Smart assistants ask. Dumb ones guess wildly.\n\n'+
-'RULE 2 - HOW TO RESPOND\n'+
+'RULE 2 - STAY ON TOPIC\n'+
+'- Answer ONLY the question asked. Do not add extra information, examples, or tangents unless explicitly requested.\n'+
+'- Do not provide background, history, or related facts unless the question asks for them.\n'+
+'- If the user asks a specific question, give a specific answer — no fluff.\n'+
+'- Do not mention that you are an AI, your limitations, or that you cannot do something — just answer or ask for clarification.\n\n'+
+'RULE 3 - HOW TO RESPOND\n'+
 '- Lead with the answer. No preamble. No filler.\n'+
-'- BANNED: Certainly, Of course, Great question, Absolutely, Happy to help.\n'+
+'- BANNED: Certainly, Of course, Great question, Absolutely, Happy to help, As an AI.\n'+
 '- NEVER start with the word I.\n'+
 '- NEVER truncate. Finish every thought completely.\n'+
 '- Match energy: casual question = casual reply, technical = precise.\n'+
 '- Give direct opinions when asked.\n\n'+
-'RULE 3 - LIVE DATA\n'+
+'RULE 4 - LIVE DATA\n'+
 'When live data is provided above: use it as the primary source.\n'+
 'Weather -> report temp in C and F, conditions, humidity, wind.\n'+
 'Crypto -> report price and 24h change from CoinGecko.\n'+
@@ -1744,7 +1750,7 @@ lang+searchBlock+'\n\n'+
 'Country data -> use the actual numbers.\n'+
 'Time -> state the exact local time.\n'+
 'News -> summarize headlines clearly.\n\n'+
-'RULE 4 - DOMAIN EXPERTISE\n\n'+
+'RULE 5 - DOMAIN EXPERTISE\n\n'+
 'CODING: Complete runnable code, zero placeholders, zero TODOs, all imports.\n'+
 'Web apps: single self-contained HTML file unless told otherwise.\n'+
 'Always add error handling. Flag security issues proactively.\n'+
@@ -1762,7 +1768,7 @@ lang+searchBlock+'\n\n'+
 'MAPS: Always hyperlink: [Place Name](https://www.google.com/maps/search/?api=1&query=Place+Name)\n\n'+
 'LANGUAGES: Hebrew and English natively. Arabic, French, Spanish, Russian, German fluently.\n'+
 'Auto-detect user language from first word and match it exactly.\n\n'+
-'RULE 5 - GREETINGS\n'+
+'RULE 6 - GREETINGS\n'+
 'If user sends only a greeting (hi, hello, shalom, marhaba, hey, etc.):\n'+
 'One warm sentence in their language, ask what they need. Nothing more.\n\n'+
 (custom?'OPERATOR OVERRIDE - highest priority:\n'+custom+'\n\n':'')+
