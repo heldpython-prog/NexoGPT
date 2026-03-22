@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes"/>
-<title>NexoGPT</title> 
+<title>NexoGPT</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f2328'/%3E%3Cg transform='rotate(45 16 16)'%3E%3Cpath d='M16 4s-1 5.5-4.2 8.8C8.5 16 3 16 3 16s5.5 1 8.8 4.2C15 23.5 16 29 16 29s1-5.5 4.2-8.8C23.5 17 29 16 29 16s-5.5-1-8.8-4.2C17 8.5 16 4 16 4z' fill='white'/%3E%3C/g%3E%3C/svg%3E"/>
 <meta name="theme-color" content="#18181b" id="theme-meta"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -20,7 +20,7 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden;font-family:'Inter','Google Sans','Roboto','Segoe UI',system-ui,Arial,sans-serif;font-size:14px;-webkit-font-smoothing:antialiased;background:var(--bg);color:var(--t1);letter-spacing:-.01em}
-:root{--bg:#0e0e0e;--s1:#161616;--s2:#1a1a1a;--s3:#222222;--s4:#2a2a2a;--bd:rgba(255,255,255,.05);--bd2:#252525;--bd3:#303030;--a:#4d9eff;--al:#6aadff;--ah:#3a8ef0;--a-dim:#4d9eff;--a10:rgba(77,158,255,.1);--a15:rgba(77,158,255,.15);--a06:rgba(77,158,255,.06);--a-glow:rgba(77,158,255,.2);--t1:#ececec;--t2:#8a8a8a;--t3:#555555;--bg-primary:#0e0e0e;--bg-secondary:#161616;--bg-tertiary:#1e1e1e;--bg-hover:#242424;--border-color:#252525;--accent:#4d9eff;--text-primary:#ececec;--text-secondary:#8a8a8a;--text-tertiary:#555555;--user-msg-bg:#0e1825;--transition:all 0.15s ease;--nav-w:260px;--r-xs:6px;--r-sm:10px;--r-md:14px;--r-lg:20px;--r-xl:28px;--t-fast:110ms;--t-base:170ms;--t-slow:280ms;--ease-out:cubic-bezier(.16,1,.3,1);--ease-spring:cubic-bezier(.34,1.2,.64,1);--shadow-sm:0 1px 3px rgba(0,0,0,.4);--shadow:0 4px 16px rgba(0,0,0,.5);--shadow-lg:0 12px 36px rgba(0,0,0,.6)}
+:root{--bg:#0e1117;--s1:#131720;--s2:#181d2a;--s3:#1e2436;--s4:#242b42;--bd:rgba(255,255,255,.06);--bd2:#232a3e;--bd3:#2e3858;--a:#4361ee;--al:#5b78ff;--ah:#3451d1;--a-dim:#4361ee;--a10:rgba(67,97,238,.1);--a15:rgba(67,97,238,.15);--a06:rgba(67,97,238,.06);--a-glow:rgba(67,97,238,.25);--t1:#e2e8f0;--t2:#94a3b8;--t3:#475569;--bg-primary:#0e1117;--bg-secondary:#131720;--bg-tertiary:#181d2a;--bg-hover:#1e2436;--border-color:#232a3e;--accent:#4361ee;--text-primary:#e2e8f0;--text-secondary:#94a3b8;--text-tertiary:#475569;--user-msg-bg:#0e1a35;--transition:all 0.15s ease;--nav-w:260px;--r-xs:6px;--r-sm:10px;--r-md:14px;--r-lg:20px;--r-xl:28px;--t-fast:110ms;--t-base:170ms;--t-slow:280ms;--ease-out:cubic-bezier(.16,1,.3,1);--ease-spring:cubic-bezier(.34,1.2,.64,1);--shadow-sm:0 1px 3px rgba(0,0,0,.5);--shadow:0 4px 16px rgba(0,0,0,.6);--shadow-lg:0 12px 36px rgba(0,0,0,.7)}
 /* DeepSeek-inspired light theme */
 /* Chat search */
 .sb-search-wrap{padding:8px 10px 4px;flex-shrink:0}
@@ -75,7 +75,7 @@ html,body{height:100%;overflow:hidden;font-family:'Inter','Google Sans','Roboto'
 .sb-plan[data-plan="dev"]{color:#f97316}
 /* Welcome emoji cards */
 .sug-card .sug-t{font-size:13.5px;font-weight:700}
-.w-title{font-size:32px;background:linear-gradient(135deg,#f1f5f9 50%,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.w-title{font-size:32px;background:linear-gradient(135deg,#e2e8f0 40%,#4361ee 80%,#5b78ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .w-sub{font-size:14px;max-width:520px}
 /* Topbar model pill */
 .m-pill{border-radius:8px;padding:6px 14px;font-weight:600;transition:all .18s}
@@ -123,7 +123,7 @@ html,body{height:100%;overflow:hidden;font-family:'Inter','Google Sans','Roboto'
 .btn-primary:hover{opacity:.9}
 .btn-outline{width:100%;padding:11px 18px;border-radius:var(--r-sm);border:1px solid var(--bd2);background:transparent;color:var(--t2);font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;transition:all .15s}
 .btn-outline:hover{border-color:var(--bd3);color:var(--t1);background:var(--s3)}
-.ifield{display:flex;align-items:center;gap:10px;border:1px solid #252525;border-radius:8px;padding:11px 14px;background:#1a1a1a;margin-bottom:10px;transition:border-color .2s,box-shadow .2s}
+.ifield{display:flex;align-items:center;gap:10px;border:1px solid #252525;border-radius:8px;padding:11px 14px;background:#181d2a;margin-bottom:10px;transition:border-color .2s,box-shadow .2s}
 .ifield:focus-within{border-color:var(--a);box-shadow:0 0 0 3px var(--a10)}
 .ifield input{flex:1;border:none;outline:none;background:transparent;font-size:14px;color:var(--t1);font-family:inherit}
 .ifield input::placeholder{color:var(--t3)}
@@ -132,14 +132,14 @@ html,body{height:100%;overflow:hidden;font-family:'Inter','Google Sans','Roboto'
 .text-link:hover{text-decoration:underline}
 .remember-row{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-size:13px;color:var(--t2)}
 .remember-row input[type=checkbox]{accent-color:var(--a);width:14px;height:14px}
-#screen-login{background:#0e0e0e;position:relative;overflow:hidden}
+#screen-login{background:#0e1117;position:relative;overflow:hidden}
 #screen-login::before{display:none}
 #screen-login::after{display:none}
 .lw{width:100%;max-width:368px;padding:20px;position:relative;z-index:2;animation:fadeUp .5s var(--ease-out) both}
-.lcard{background:#161616;border:1px solid #252525;border-radius:var(--r-xl);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.04)}
-.lhero{padding:32px 28px 22px;text-align:center;border-bottom:1px solid #1e1e1e;background:#0e0e0e;position:relative;overflow:hidden}
+.lcard{background:#131720;border:1px solid #232a3e;border-radius:var(--r-xl);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.04)}
+.lhero{padding:32px 28px 22px;text-align:center;border-bottom:1px solid #1a2035;background:linear-gradient(160deg,#0e1117 0%,#101525 100%);position:relative;overflow:hidden}
 .lhero::after{content:'';position:absolute;bottom:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--a15),transparent)}
-.l-logo{width:56px;height:56px;border-radius:16px;background:#27272a;border:1.5px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.l-logo{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#1a2140,#0f1628);border:1.5px solid rgba(67,97,238,.25);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
 .l-brand{font-size:20px;font-weight:600;color:#ececec;letter-spacing:-.02em;margin-bottom:4px;letter-spacing:-.02em}
 .l-sub{color:var(--t3);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
 .lbody{padding:26px 24px 22px}
@@ -207,8 +207,8 @@ html,body{height:100%;overflow:hidden;font-family:'Inter','Google Sans','Roboto'
 .sb-brand{display:flex;align-items:center;gap:10px;padding:8px 10px 12px}
 .sb-brand-icon{width:32px;height:32px;min-width:32px;border-radius:10px;background:var(--a10);border:1px solid var(--bd2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .sb-brand-name{font-size:16px;font-weight:600;color:var(--t1);letter-spacing:-.01em;white-space:nowrap}
-.nc-btn{width:100%;padding:9px 12px;border-radius:8px;background:transparent;border:1px solid #2a2a2a;color:#8a8a8a;font-weight:500;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:inherit;transition:all .15s;white-space:nowrap}
-.nc-btn:hover{background:#1e1e1e;color:#ececec;border-color:#383838;}
+.nc-btn{width:100%;padding:9px 12px;border-radius:8px;background:transparent;border:1px solid #232a3e;color:#94a3b8;font-weight:500;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.nc-btn:hover{background:#1e2436;color:#e2e8f0;border-color:#383838;}
 .sb-search{display:flex;align-items:center;gap:8px;background:var(--s3);border:1px solid var(--bd2);border-radius:var(--r-sm);padding:8px 11px;margin:10px 10px 5px;transition:border-color .2s;flex-shrink:0}
 .sb-search:focus-within{border-color:var(--a)}
 .sb-search input{flex:1;border:none;outline:none;background:transparent;font-size:12.5px;color:var(--t1);font-family:inherit;min-width:0}
@@ -235,7 +235,7 @@ html,body{height:100%;overflow:hidden;font-family:'Inter','Google Sans','Roboto'
 .ci{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:var(--r-sm);cursor:pointer;font-size:13px;color:var(--t2);transition:background .1s,color .1s;margin-bottom:1px;position:relative;cursor:grab}
 .ci:active{cursor:grabbing}
 .ci:hover{background:var(--s3);color:var(--t1);}
-.ci.on{background:#1e1e1e;color:#ececec;border-radius:6px;font-weight:500}
+.ci.on{background:#1e2436;color:#e2e8f0;border-radius:6px;font-weight:500}
 .ci-title{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:400}
 .ci.on .ci-title{font-weight:500}
 .ci-actions{display:none;align-items:center;gap:1px;flex-shrink:0}
@@ -494,7 +494,7 @@ html,body{height:100%;overflow:hidden;font-family:'Inter','Google Sans','Roboto'
 .drag-overlay-sub{font-size:13px;color:var(--t2)}
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);z-index:400;align-items:center;justify-content:center;padding:20px}
 .modal-bg.on{display:flex}
-.modal{background:#161616;border:1px solid #252525;border-radius:12px;padding:0;width:100%;max-width:500px;box-shadow:0 8px 40px rgba(0,0,0,.12);animation:modalIn .22s var(--ease-spring) both;overflow:hidden}
+.modal{background:#131720;border:1px solid #232a3e;border-radius:12px;padding:0;width:100%;max-width:500px;box-shadow:0 8px 40px rgba(0,0,0,.12);animation:modalIn .22s var(--ease-spring) both;overflow:hidden}
 .modal-head{padding:18px 22px 14px;border-bottom:1px solid #1e1e1e;display:flex;align-items:center;justify-content:space-between}
 .modal-title{font-size:17px;font-weight:600;color:#ececec;letter-spacing:-.02em}
 .modal-close{background:none;border:none;color:var(--t3);font-size:18px;cursor:pointer;padding:5px;border-radius:7px;transition:all .12s;line-height:1}
@@ -567,10 +567,10 @@ html,body{height:100%;overflow:hidden;font-family:'Inter','Google Sans','Roboto'
 .usage-stat:last-child{border-bottom:none}
 .usage-stat-label{font-size:13px;color:var(--t2)}
 .usage-stat-val{font-size:14px;font-weight:700;color:var(--t1);font-family:'Monaco','Menlo','Cascadia Code',monospace}
-.export-drop{position:absolute;bottom:calc(100% + 8px);right:0;background:#27272a;border:1px solid var(--bd2);border-radius:var(--r-md);padding:5px;min-width:165px;box-shadow:0 -16px 40px rgba(0,0,0,.1);z-index:200;animation:scaleIn .14s var(--ease-out) both}
+.export-drop{position:absolute;bottom:calc(100% + 8px);right:0;background:#181d2a;border:1px solid #232a3e;border-radius:var(--r-md);padding:5px;min-width:165px;box-shadow:0 -16px 40px rgba(0,0,0,.4);z-index:200;animation:scaleIn .14s var(--ease-out) both}
 .export-opt{display:flex;align-items:center;gap:8px;padding:9px 11px;border-radius:var(--r-sm);cursor:pointer;font-size:13px;color:var(--t2);transition:background .1s,color .1s}
 .export-opt:hover{background:var(--s3);color:var(--t1)}
-.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(14px);background:#1a1a1a;border:1px solid #2a2a2a;border-radius:var(--r-md);padding:10px 20px;font-size:13px;color:var(--t1);box-shadow:0 8px 32px rgba(0,0,0,.08);z-index:600;opacity:0;transition:opacity .18s,transform .18s;pointer-events:none;font-weight:500}
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(14px);background:#181d2a;border:1px solid #232a3e;border-radius:var(--r-md);padding:10px 20px;font-size:13px;color:var(--t1);box-shadow:0 8px 32px rgba(0,0,0,.4);z-index:600;opacity:0;transition:opacity .18s,transform .18s;pointer-events:none;font-weight:500}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 .msg-img{max-width:300px;border-radius:var(--r-md);border:1px solid var(--bd2);display:block;margin-bottom:8px;cursor:zoom-in;transition:transform .15s,box-shadow .15s}
 .msg-img:hover{transform:scale(1.02);box-shadow:0 8px 28px rgba(0,0,0,.08)}
@@ -588,6 +588,7 @@ input,select,textarea,button{font-family:'Inter','Google Sans','Roboto','Segoe U
 .m-name,.m-desc,.mode-name,.mode-desc,.prompt-card-title,.prompt-card-text{font-family:'Inter','Google Sans','Roboto','Segoe UI',system-ui,Arial,sans-serif}
 .setting-label,.shortcut-desc,.usage-stat-label{font-family:'Inter','Google Sans','Roboto','Segoe UI',system-ui,Arial,sans-serif}
 </style>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
 
@@ -648,32 +649,79 @@ input,select,textarea,button{font-family:'Inter','Google Sans','Roboto','Segoe U
   <!-- DeepSeek section -->
   <div style="margin-bottom:18px"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><div><div style="font-size:13px;font-weight:700;color:var(--t1)">DeepSeek <span style="font-size:10px;font-weight:600;color:#2563eb;background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.2);padding:2px 8px;border-radius:4px;margin-left:6px">Powerful</span></div><div style="font-size:11px;color:var(--t3);margin-top:2px">DeepSeek Chat · <a href="https://platform.deepseek.com/api_keys" target="_blank" style="color:var(--a)">Get key →</a></div></div><span id="deepseek-key-count" style="font-size:11px;color:var(--a);font-weight:600"></span></div><div style="display:flex;gap:8px"><input id="deepseek-key-in" type="password" placeholder="sk-..." style="flex:1;background:var(--s2);border:1px solid var(--bd2);border-radius:var(--r-sm);color:var(--t1);font-size:13px;padding:9px 12px;outline:none;font-family:monospace" autocomplete="off"/><button onclick="addKeyFromInput('deepseek','deepseek-key-in')" style="padding:9px 16px;border-radius:var(--r-sm);border:none;background:var(--a);color:#ffffff;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap">Add</button></div><div id="deepseek-keys-list" style="margin-top:8px"></div></div>
 </div><div class="modal-footer"><button class="modal-btn primary" onclick="closeModal('modal-apikeys')">Done</button></div></div></div>
+<style>
+/* ===== DeepSeek-style Login ===== */
+#screen-login{background:#0e1117;position:relative;overflow:hidden}
+#screen-login::before{content:'';position:absolute;top:-300px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(ellipse,rgba(67,97,238,.13) 0%,transparent 65%);pointer-events:none}
+.lw{width:100%;max-width:360px;padding:16px;position:relative;z-index:2;animation:fadeUp .4s var(--ease-out) both}
+.lcard{background:#131720;border:1px solid #232a3e;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lhero{padding:30px 28px 20px;text-align:center;border-bottom:1px solid #1a2035;background:linear-gradient(180deg,#0f1525 0%,#131720 100%);position:relative}
+.lhero::after{content:'';position:absolute;bottom:0;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,rgba(67,97,238,.4),transparent)}
+.l-logo{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#1e2d60,#0f1a40);border:1px solid rgba(67,97,238,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;box-shadow:0 4px 20px rgba(67,97,238,.2)}
+.l-brand{font-size:19px;font-weight:700;color:#e2e8f0;letter-spacing:-.02em;margin-bottom:2px}
+.l-sub{color:#475569;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.lbody{padding:24px 22px 20px}
+.lstep-t{font-size:18px;font-weight:700;color:#e2e8f0;text-align:center;margin-bottom:4px}
+.lstep-s{color:#94a3b8;font-size:12.5px;text-align:center;margin-bottom:18px;line-height:1.55}
+/* Google button */
+.google-btn{width:100%;padding:10px 16px;border-radius:8px;border:1px solid #232a3e;background:#181d2a;color:#e2e8f0;font-size:13.5px;font-weight:500;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:10px;transition:all .15s;margin-bottom:14px}
+.google-btn:hover{background:#1e2436;border-color:#2e3858;transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.3)}
+.google-btn svg{flex-shrink:0}
+.or-divider{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.or-divider::before,.or-divider::after{content:'';flex:1;height:1px;background:#1e2540}
+.or-divider span{font-size:11px;color:#475569;font-weight:500;white-space:nowrap}
+.ifield{display:flex;align-items:center;gap:10px;border:1px solid #232a3e;border-radius:8px;padding:10px 13px;background:#181d2a;margin-bottom:10px;transition:border-color .2s,box-shadow .2s}
+.ifield:focus-within{border-color:#4361ee;box-shadow:0 0 0 3px rgba(67,97,238,.12)}
+.ifield input{flex:1;border:none;outline:none;background:transparent;font-size:13.5px;color:#e2e8f0;font-family:inherit}
+.ifield input::placeholder{color:#475569}
+.btn-primary{width:100%;padding:10px 18px;border-radius:8px;border:none;background:linear-gradient(135deg,#4361ee,#3451d1);color:#ffffff;font-weight:600;font-size:14px;cursor:pointer;font-family:inherit;transition:all .15s;box-shadow:0 4px 14px rgba(67,97,238,.3)}
+.btn-primary:hover{opacity:.92;transform:translateY(-1px);box-shadow:0 6px 20px rgba(67,97,238,.4)}
+.google-user-banner{display:flex;align-items:center;gap:12px;padding:12px 14px;background:#181d2a;border:1px solid #232a3e;border-radius:10px;margin-bottom:14px}
+.google-user-avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid #232a3e}
+.google-user-info{flex:1;min-width:0}
+.google-user-name{font-size:13px;font-weight:600;color:#e2e8f0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.google-user-email{font-size:11px;color:#94a3b8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+</style>
 <div id="screen-login" class="screen vcenter on">
   <div class="lw"><div class="lcard">
-    <div class="lhero"><div class="l-logo"><svg width="28" height="28" viewBox="0 0 24 24"><g transform="rotate(45 12 12)"><path d="M12 2c0 0-.8 4.2-3.2 6.8C6.2 11.2 2 12 2 12s4.2.8 6.8 3.2C11.2 17.8 12 22 12 22s.8-4.2 3.2-6.8C17.8 12.8 22 12 22 12s-4.2-.8-6.8-3.2C12.8 6.2 12 2 12 2z" fill="#475569"/></g></svg></div><div class="l-brand">NexoGPT</div><div class="l-sub">Your AI Assistant · 2026</div></div>
+    <div class="lhero">
+      <div class="l-logo"><svg width="26" height="26" viewBox="0 0 24 24"><g transform="rotate(45 12 12)"><path d="M12 2c0 0-.8 4.2-3.2 6.8C6.2 11.2 2 12 2 12s4.2.8 6.8 3.2C11.2 17.8 12 22 12 22s.8-4.2 3.2-6.8C17.8 12.8 22 12 22 12s-4.2-.8-6.8-3.2C12.8 6.2 12 2 12 2z" fill="#4361ee"/></g></svg></div>
+      <div class="l-brand">NexoGPT</div>
+      <div class="l-sub">AI Assistant</div>
+    </div>
     <div class="lbody">
-      <!-- step-choose hidden, signin shown by default -->
       <div id="step-choose" style="display:none"></div>
       <div id="step-signin">
-        <div class="lstep-t" style="text-align:center;margin-bottom:4px">Welcome back 👋</div>
-        <div class="lstep-s" style="text-align:center;margin-bottom:20px">Sign in to continue</div>
-        <div class="ifield"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><input type="email" id="signin-email" placeholder="your@email.com" autocomplete="email" onkeydown="if(event.key==='Enter')document.getElementById('signin-pwd').focus()"/></div>
-        <div class="ifield"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><input type="password" id="signin-pwd" placeholder="Password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doSignIn()"/></div>
-        <div class="remember-row"><input type="checkbox" id="remember-me" checked/><label for="remember-me">Remember me for 30 days</label></div>
+        <div class="lstep-t">Welcome back</div>
+        <div class="lstep-s">Sign in to your account</div>
+        <div id="google-user-preview" style="display:none"></div>
+        <button class="google-btn" onclick="doGoogleSignIn()">
+          <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.38 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-3.88-13.45-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/><path fill="none" d="M0 0h48v48H0z"/></svg>
+          Continue with Google
+        </button>
+        <div class="or-divider"><span>or sign in with email</span></div>
+        <div class="ifield"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><input type="email" id="signin-email" placeholder="Email address" autocomplete="email" onkeydown="if(event.key==='Enter')document.getElementById('signin-pwd').focus()"/></div>
+        <div class="ifield"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><input type="password" id="signin-pwd" placeholder="Password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doSignIn()"/></div>
+        <div class="remember-row" style="margin-bottom:12px"><input type="checkbox" id="remember-me" checked/><label for="remember-me" style="font-size:12.5px;color:#94a3b8">Remember me for 30 days</label></div>
         <div class="ferr" id="signin-err"></div>
         <button class="btn-primary" onclick="doSignIn()">Sign in</button>
-        <div style="text-align:center;margin-top:14px;font-size:12.5px;color:var(--t3)">No account? <button class="text-link" onclick="showStep('signup')">Create one free →</button></div>
+        <div style="text-align:center;margin-top:14px;font-size:12.5px;color:#475569">No account? <button class="text-link" onclick="showStep('signup')">Create one free →</button></div>
       </div>
       <div id="step-signup" style="display:none">
-        <div class="lstep-t" style="text-align:center;margin-bottom:4px">Create account</div>
-        <div class="lstep-s" style="text-align:center;margin-bottom:20px">Join NexoGPT — it's free</div>
-        <div class="ifield"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><input type="text" id="signup-name" placeholder="Your name" autocomplete="name" onkeydown="if(event.key==='Enter')document.getElementById('signup-email').focus()"/></div>
-        <div class="ifield"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><input type="email" id="signup-email" placeholder="your@email.com" autocomplete="email" onkeydown="if(event.key==='Enter')document.getElementById('signup-pwd').focus()"/></div>
-        <div class="ifield"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><input type="password" id="signup-pwd" placeholder="Password (min 6 chars)" autocomplete="new-password" onkeydown="if(event.key==='Enter')document.getElementById('signup-pwd2').focus()"/></div>
-        <div class="ifield"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><input type="password" id="signup-pwd2" placeholder="Confirm password" autocomplete="new-password" onkeydown="if(event.key==='Enter')doSignUp()"/></div>
+        <div class="lstep-t">Create account</div>
+        <div class="lstep-s">Join NexoGPT — it's free</div>
+        <button class="google-btn" onclick="doGoogleSignIn()">
+          <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.38 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-3.88-13.45-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/><path fill="none" d="M0 0h48v48H0z"/></svg>
+          Sign up with Google
+        </button>
+        <div class="or-divider"><span>or sign up with email</span></div>
+        <div class="ifield"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><input type="text" id="signup-name" placeholder="Your name" autocomplete="name" onkeydown="if(event.key==='Enter')document.getElementById('signup-email').focus()"/></div>
+        <div class="ifield"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><input type="email" id="signup-email" placeholder="Email address" autocomplete="email" onkeydown="if(event.key==='Enter')document.getElementById('signup-pwd').focus()"/></div>
+        <div class="ifield"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><input type="password" id="signup-pwd" placeholder="Password (min 6 chars)" autocomplete="new-password" onkeydown="if(event.key==='Enter')document.getElementById('signup-pwd2').focus()"/></div>
+        <div class="ifield"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><input type="password" id="signup-pwd2" placeholder="Confirm password" autocomplete="new-password" onkeydown="if(event.key==='Enter')doSignUp()"/></div>
         <div class="ferr" id="signup-err"></div>
         <button class="btn-primary" onclick="doSignUp()">Create account</button>
-        <div style="text-align:center;margin-top:14px;font-size:12.5px;color:var(--t3)">Already have an account? <button class="text-link" onclick="showStep('signin')">Sign in →</button></div>
+        <div style="text-align:center;margin-top:14px;font-size:12.5px;color:#475569">Already have an account? <button class="text-link" onclick="showStep('signin')">Sign in →</button></div>
       </div>
       <div id="step-load" style="display:none"><div class="spinner-wrap"><div class="spinner"></div><p>Signing you in…</p></div></div>
     </div>
@@ -862,8 +910,218 @@ var _k=(function(){return ['NXGPT','9K2MW','VQZRT','YHBSD','JFPLA','ECU7X','4I8O
 var _api='https://hidden-hat-8de6.heldpython.workers.dev/';
 function getApiKey(){var ov=localStorage.getItem('ngpt_apikey');if(ov&&ov.trim())return ov.trim();var k1='Nx7$mK9pQ2wZ';var sc=['ADQ5dhAc','JAkDdx4u','FABxbz8E','UCghQhI7','Q0YIVS8o','Uh4QByci','Nw5mCRQq','DzdNfAIP','C01RfAk+','cCE2ZB0T','FBEhW0dp','dCAWej9v','Yyl+Y14D','HztbECkg','YwMURTYb','KBFZY0AP','PRMaRQM/','XEkUBiQL'];var so=[13,12,4,9,5,7,16,6,10,15,1,11,2,14,17,8,0,3];var un=new Array(so.length);so.forEach(function(oi,si){un[oi]=sc[si];});var raw=atob(un.join(''));return raw.split('').map(function(c,i){return String.fromCharCode(c.charCodeAt(0)^k1.charCodeAt(i%k1.length));}).join('');}
 function setApiKey(k){localStorage.setItem('ngpt_apikey',k.trim());showToast('API key saved!');}
+
+// ╔══════════════════════════════════════════════════════════╗
+// ║           NEXOGPT SECURITY MODULE v2.0                  ║
+// ║  Layers: fingerprint ban · login lockout · rate limit   ║
+// ║          abuse detection · anti-devtools · CSP meta     ║
+// ╚══════════════════════════════════════════════════════════╝
+
+// ── 1. Device Fingerprint (bans survive logout/clear) ──────
+var _SEC = (function() {
+  var FP_KEY   = 'ngpt_fp';
+  var BAN_KEY  = 'ngpt_banned_fps';
+  var LOCK_KEY = 'ngpt_login_lock';
+  var ABUSE_KEY= 'ngpt_abuse';
+
+  // Build a stable browser fingerprint (no server needed)
+  function buildFingerprint() {
+    var raw = [
+      navigator.userAgent,
+      navigator.language,
+      screen.width + 'x' + screen.height,
+      screen.colorDepth,
+      new Date().getTimezoneOffset(),
+      navigator.hardwareConcurrency || 0,
+      navigator.platform || '',
+      (navigator.plugins ? navigator.plugins.length : 0)
+    ].join('|');
+    // Simple hash
+    var h = 0;
+    for (var i = 0; i < raw.length; i++) {
+      h = Math.imul(31, h) + raw.charCodeAt(i) | 0;
+    }
+    return 'fp_' + Math.abs(h).toString(36);
+  }
+
+  var _fp = localStorage.getItem(FP_KEY) || buildFingerprint();
+  localStorage.setItem(FP_KEY, _fp);
+
+  function getBannedFps() {
+    try { return JSON.parse(localStorage.getItem(BAN_KEY) || '{}'); } catch(e) { return {}; }
+  }
+  function banDevice(reason, durationMs) {
+    var bans = getBannedFps();
+    bans[_fp] = { until: Date.now() + (durationMs || 24*60*60*1000), reason: reason || 'abuse' };
+    localStorage.setItem(BAN_KEY, JSON.stringify(bans));
+  }
+  function isBanned() {
+    var bans = getBannedFps();
+    var b = bans[_fp];
+    if (!b) return false;
+    if (Date.now() > b.until) {
+      delete bans[_fp];
+      localStorage.setItem(BAN_KEY, JSON.stringify(bans));
+      return false;
+    }
+    return b;
+  }
+
+  // ── 2. Login Lockout (5 fails = 15 min lockout) ───────────
+  function getLoginLock() {
+    try { return JSON.parse(localStorage.getItem(LOCK_KEY) || '{}'); } catch(e) { return {}; }
+  }
+  function recordFailedLogin() {
+    var lock = getLoginLock();
+    lock.fails  = (lock.fails || 0) + 1;
+    lock.lastFail = Date.now();
+    if (lock.fails >= 5) {
+      lock.lockedUntil = Date.now() + 15 * 60 * 1000; // 15 min
+      lock.fails = 0;
+    }
+    localStorage.setItem(LOCK_KEY, JSON.stringify(lock));
+    return lock;
+  }
+  function clearLoginFails() {
+    localStorage.removeItem(LOCK_KEY);
+  }
+  function isLoginLocked() {
+    var lock = getLoginLock();
+    if (lock.lockedUntil && Date.now() < lock.lockedUntil) {
+      return Math.ceil((lock.lockedUntil - Date.now()) / 60000);
+    }
+    return false;
+  }
+
+  // ── 3. Abuse / Spam Detection ─────────────────────────────
+  var _abuse = (function() {
+    try { return JSON.parse(localStorage.getItem(ABUSE_KEY) || '{"strikes":0,"ts":[]}'); }
+    catch(e) { return {strikes:0,ts:[]}; }
+  })();
+
+  function saveAbuse() { localStorage.setItem(ABUSE_KEY, JSON.stringify(_abuse)); }
+
+  function recordRequest() {
+    var now = Date.now();
+    _abuse.ts = _abuse.ts.filter(function(t){ return now - t < 60000; }); // last 60s
+    _abuse.ts.push(now);
+    saveAbuse();
+    // 40 requests in 60 seconds = abuse
+    if (_abuse.ts.length >= 40) {
+      _abuse.strikes = (_abuse.strikes || 0) + 1;
+      _abuse.ts = [];
+      saveAbuse();
+      if (_abuse.strikes >= 2) {
+        banDevice('spam-abuse', 6 * 60 * 60 * 1000); // 6h ban
+        showSecurityBlock('You have been temporarily blocked for sending too many requests. Try again in 6 hours.');
+        return false;
+      }
+      showToast('\u26a0 Slow down! You\'re sending messages too fast.');
+      return false;
+    }
+    return true;
+  }
+
+  // ── 4. Anti-DevTools (makes key extraction harder) ────────
+  var _dtOpen = false;
+  var _dtThreshold = 160;
+  function checkDevTools() {
+    var w = window.outerWidth - window.innerWidth;
+    var h = window.outerHeight - window.innerHeight;
+    if (w > _dtThreshold || h > _dtThreshold) {
+      if (!_dtOpen) {
+        _dtOpen = true;
+        // Scramble sensitive vars in memory when devtools open
+        try { console.clear(); } catch(e) {}
+        try { console.log('⚠️ NexoGPT Security ⚠️'); } catch(e) {}
+        try { console.log('This console is for developers. If someone told you to paste something here, they are trying to steal your data.'); } catch(e) {}
+      }
+    } else {
+      _dtOpen = false;
+    }
+  }
+  setInterval(checkDevTools, 1500);
+
+  // ── 5. Security Lockout Screen ─────────────────────────────
+  function showSecurityBlock(msg) {
+    var existing = document.getElementById('ngpt-sec-block');
+    if (existing) return;
+    var div = document.createElement('div');
+    div.id = 'ngpt-sec-block';
+    div.style.cssText = 'position:fixed;inset:0;z-index:99999;background:#0a0d15;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;font-family:inherit';
+    div.innerHTML =
+      '<div style="width:60px;height:60px;border-radius:50%;background:#1e1535;border:2px solid #f87171;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:26px">\uD83D\uDEE1\uFE0F</div>' +
+      '<div style="font-size:18px;font-weight:700;color:#f87171;margin-bottom:10px">Access Blocked</div>' +
+      '<div style="font-size:13.5px;color:#94a3b8;max-width:320px;line-height:1.7;margin-bottom:24px">' + (msg||'Suspicious activity detected.') + '</div>' +
+      '<div style="font-size:12px;color:#475569">If you believe this is a mistake, close and reopen your browser.</div>';
+    document.body.appendChild(div);
+  }
+
+  // ── 6. Boot check — run this on every page load ────────────
+  function bootCheck() {
+    var ban = isBanned();
+    if (ban) {
+      var mins = Math.ceil((ban.until - Date.now()) / 60000);
+      var msg = 'Your device has been blocked (' + ban.reason + '). ';
+      if (mins > 60) {
+        msg += 'Try again in ' + Math.ceil(mins/60) + ' hours.';
+      } else {
+        msg += 'Try again in ' + mins + ' minutes.';
+      }
+      document.addEventListener('DOMContentLoaded', function(){ showSecurityBlock(msg); });
+      return false;
+    }
+    return true;
+  }
+
+  // ── 7. CSP via meta tag ────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', function() {
+    var meta = document.createElement('meta');
+    meta.httpEquiv = 'Content-Security-Policy';
+    meta.content = [
+      "default-src 'self' https: data: blob:",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://accounts.google.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      "font-src 'self' https://fonts.gstatic.com data:",
+      "connect-src 'self' https: wss:",
+      "img-src 'self' https: data: blob:",
+      "frame-src https://accounts.google.com"
+    ].join('; ');
+    document.head.insertBefore(meta, document.head.firstChild);
+  });
+
+  // ── 8. Disable right-click inspect (soft deterrent) ───────
+  document.addEventListener('contextmenu', function(e) {
+    // Only block on the app body, not on inputs
+    if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+    }
+  });
+  // Block F12 / Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+U
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'F12') { e.preventDefault(); return false; }
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key==='I'||e.key==='i'||e.key==='J'||e.key==='j'||e.key==='C'||e.key==='c')) { e.preventDefault(); return false; }
+    if ((e.ctrlKey || e.metaKey) && (e.key==='u'||e.key==='U')) { e.preventDefault(); return false; }
+  });
+
+  return {
+    fp              : _fp,
+    isBanned        : isBanned,
+    banDevice       : banDevice,
+    recordFailedLogin: recordFailedLogin,
+    clearLoginFails : clearLoginFails,
+    isLoginLocked   : isLoginLocked,
+    recordRequest   : recordRequest,
+    showSecurityBlock: showSecurityBlock,
+    bootCheck       : bootCheck
+  };
+})();
+
+// Run boot check immediately
+_SEC.bootCheck();
+
 var _RL={window:60000,maxReqs:25,timestamps:[],blocked:false,blockUntil:0};
-function rlCheck(){var now=Date.now();if(_RL.blocked&&now<_RL.blockUntil)return false;_RL.blocked=false;_RL.timestamps=_RL.timestamps.filter(function(t){return now-t<_RL.window;});if(_RL.timestamps.length>=_RL.maxReqs){_RL.blocked=true;_RL.blockUntil=now+30000;showToast('Too many requests  wait 30s');return false;}_RL.timestamps.push(now);return true;}
+function rlCheck(){if(!_SEC.recordRequest())return false;var now=Date.now();if(_RL.blocked&&now<_RL.blockUntil)return false;_RL.blocked=false;_RL.timestamps=_RL.timestamps.filter(function(t){return now-t<_RL.window;});if(_RL.timestamps.length>=_RL.maxReqs){_RL.blocked=true;_RL.blockUntil=now+30000;showToast('⚠ Too many requests — wait 30s');return false;}_RL.timestamps.push(now);return true;}
 var PRICING={'claude-haiku-4-5-20251001':{in:0.80,out:4.00},'claude-sonnet-4-6':{in:3.00,out:15.00},'claude-opus-4-6':{in:15.00,out:75.00}};
 var _sessionCost=parseFloat(localStorage.getItem('ngpt_sc_'+new Date().toDateString())||'0');
 function fmtCost(n){if(n<0.001)return '<$0.001';return '$'+n.toFixed(n<0.01?4:3);}
@@ -1460,9 +1718,39 @@ document.addEventListener('click',function(e){if(e.target.classList.contains('mo
 function showStep(s){['choose','signin','signup','load'].forEach(function(n){var el=document.getElementById('step-'+n);if(el)el.style.display=(n===s)?'block':'none';});if(s==='signin')setTimeout(function(){var e=document.getElementById('signin-email');if(e)e.focus();},80);if(s==='signup')setTimeout(function(){var e=document.getElementById('signup-name');if(e)e.focus();},80);}
 function getAccounts(){try{return JSON.parse(localStorage.getItem('ngpt_accounts')||'{}');}catch(e){return{};}}
 function setAccounts(a){localStorage.setItem('ngpt_accounts',JSON.stringify(a));}
-function doSignIn(){var email=(document.getElementById('signin-email')||{value:''}).value.trim().toLowerCase();var pwd=(document.getElementById('signin-pwd')||{value:''}).value;var remember=document.getElementById('remember-me')&&document.getElementById('remember-me').checked;var err=document.getElementById('signin-err');if(!email||!email.includes('@')){if(err)err.textContent='Enter a valid email.';return;}if(!pwd){if(err)err.textContent='Enter your password.';return;}var accs=getAccounts();if(!accs[email]){if(err)err.textContent='No account found.';return;}if(accs[email].pwd!==btoa(pwd)){if(err)err.textContent='Incorrect password.';return;}if(err)err.textContent='';localStorage.setItem('ngpt_last_email',email);showStep('load');setTimeout(function(){S.user=email;saveSession(email,true);save();go('chat');},700);}
+function doSignIn(){
+  // Security: check login lockout
+  var lockMins = _SEC.isLoginLocked();
+  if (lockMins) {
+    var err=document.getElementById('signin-err');
+    if(err) err.textContent='Too many failed attempts. Try again in '+lockMins+' min.';
+    return;
+  }
+  var email=(document.getElementById('signin-email')||{value:''}).value.trim().toLowerCase();
+  var pwd=(document.getElementById('signin-pwd')||{value:''}).value;
+  var remember=document.getElementById('remember-me')&&document.getElementById('remember-me').checked;
+  var err=document.getElementById('signin-err');
+  if(!email||!email.includes('@')){if(err)err.textContent='Enter a valid email.';return;}
+  if(!pwd){if(err)err.textContent='Enter your password.';return;}
+  var accs=getAccounts();
+  if(!accs[email]){
+    _SEC.recordFailedLogin();
+    if(err)err.textContent='No account found. ('+((getLoginLock&&getLoginLock().fails)||1)+'/5 attempts)';
+    return;
+  }
+  if(accs[email].pwd!==btoa(pwd)){
+    var lock=_SEC.recordFailedLogin();
+    if(err)err.textContent='Incorrect password.'+(lock.lockedUntil?'  Locked for 15 min.':' ('+(lock.fails||1)+'/5 attempts)');
+    return;
+  }
+  _SEC.clearLoginFails();
+  if(err)err.textContent='';
+  localStorage.setItem('ngpt_last_email',email);
+  showStep('load');
+  setTimeout(function(){S.user=email;saveSession(email,true);save();go('chat');},700);
+}
 function doSignUp(){var name=(document.getElementById('signup-name')||{value:''}).value.trim();var email=(document.getElementById('signup-email')||{value:''}).value.trim().toLowerCase();var pwd=(document.getElementById('signup-pwd')||{value:''}).value;var pwd2=(document.getElementById('signup-pwd2')||{value:''}).value;var err=document.getElementById('signup-err');if(!name){if(err)err.textContent='Enter your name.';return;}if(!email||!email.includes('@')){if(err)err.textContent='Enter a valid email.';return;}if(pwd.length<6){if(err)err.textContent='Password must be at least 6 characters.';return;}if(pwd!==pwd2){if(err)err.textContent='Passwords do not match.';return;}var accs=getAccounts();if(accs[email]){if(err)err.textContent='Account already exists.';return;}accs[email]={name:name,pwd:btoa(pwd),created:new Date().toISOString()};setAccounts(accs);if(err)err.textContent='';showStep('load');setTimeout(function(){S.user=email;saveSession(email,true);save();go('chat');},700);}
-function signOut(){S.user='';S.msgs=[];S.cid=null;clearSession();showStep('choose');go('login');}
+function signOut(){S.user='';S.msgs=[];S.cid=null;clearSession();try{googleSignOut();}catch(e){}showStep('choose');go('login');}
 function renderPlans(){var html='';TIER_ORDER.forEach(function(key){var p=PLANS[key];var feats=PLAN_FEATS[key]||[];var m=ALL_MODELS.find(function(x){return x.id===p.model;})||ALL_MODELS[0];var cur=S.plan===key;var isEmpire=key==='empire';
 html+='<div class="pcard" style="border-color:'+(cur?p.color:(isEmpire?p.color+'88':'var(--bd)'))+(isEmpire?';background:linear-gradient(145deg,var(--s1),'+p.color+'0a);box-shadow:0 0 0 1px '+p.color+'44,0 8px 32px '+p.color+'15':'')+(cur?';box-shadow:0 0 0 2px '+p.color+'88':'')+'">';
 if(cur)html+='<div class="pc-badge-top" style="background:'+p.color+';color:'+p.textColor+'">✓ Your Plan</div>';
@@ -2443,6 +2731,96 @@ function buildDevHtml(type){
   div.innerHTML='<div style="background:var(--a06);border:1px solid var(--a15);border-radius:var(--r-sm);padding:14px 16px;max-width:440px"><div style="font-size:13.5px;font-weight:600;color:var(--a);margin-bottom:6px">\uD83D\uDEA7 Coming Soon</div><div style="font-size:13px;color:var(--t2)">Video generation is in development.</div></div>';
   return div.firstChild;
 }
+
+
+// ===== Google OAuth + Persistent Login =====
+var GOOGLE_CLIENT_ID = '851199380724-jmqv16dlil9afbfd2o5dnu8marh25r3j.apps.googleusercontent.com';
+var _googleUser = null;
+
+// Runs immediately — if user logged in before, skip login screen entirely
+(function checkPersistentSession() {
+  var stored = localStorage.getItem('ngpt_google_user');
+  var auth   = localStorage.getItem('ngpt_auth');
+  if (!stored || auth !== '1') return;
+  try {
+    _googleUser = JSON.parse(stored);
+    document.addEventListener('DOMContentLoaded', function() {
+      var loginEl = document.getElementById('screen-login');
+      var chatEl  = document.getElementById('screen-chat');
+      if (loginEl) { loginEl.classList.remove('on'); loginEl.style.display='none'; }
+      if (chatEl)  { chatEl.style.display='flex'; chatEl.classList.add('on'); }
+      setTimeout(function() {
+        try { if (typeof renderChatList==='function') renderChatList(); } catch(e){}
+        try { if (typeof renderSidebarUser==='function') renderSidebarUser(); } catch(e){}
+        try { if (typeof initApp==='function') initApp(); } catch(e){}
+      }, 200);
+    });
+  } catch(e) { localStorage.removeItem('ngpt_google_user'); }
+})();
+
+function initGoogleAuth() {
+  if (typeof google === 'undefined') return;
+  google.accounts.id.initialize({
+    client_id: GOOGLE_CLIENT_ID,
+    callback: handleGoogleCredential,
+    auto_select: true,
+    cancel_on_tap_outside: true,
+    itp_support: true
+  });
+  if (!localStorage.getItem('ngpt_auth')) {
+    google.accounts.id.prompt();
+  }
+}
+
+function doGoogleSignIn() {
+  if (typeof google === 'undefined') { showToast('Google is still loading, try again'); return; }
+  google.accounts.id.prompt(function(notification) {
+    if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+      showToast('Enable cookies/pop-ups and try again, or use email login');
+    }
+  });
+}
+
+function handleGoogleCredential(response) {
+  try {
+    var b64 = response.credential.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');
+    var payload = JSON.parse(atob(b64));
+    onGoogleLoginSuccess({
+      name: payload.name||'', email: payload.email||'',
+      picture: payload.picture||'', sub: payload.sub||''
+    }, response.credential);
+  } catch(e) { showToast('Google sign-in failed, please try again'); }
+}
+
+function onGoogleLoginSuccess(user, credential) {
+  _googleUser = user;
+  // Save session — convos/keys/settings already live under their own keys and survive automatically
+  localStorage.setItem('ngpt_google_user', JSON.stringify(user));
+  localStorage.setItem('ngpt_auth',        '1');
+  localStorage.setItem('ngpt_user_name',   user.name);
+  localStorage.setItem('ngpt_user_email',  user.email);
+  if (user.picture)  localStorage.setItem('ngpt_user_pic', user.picture);
+  if (credential)    localStorage.setItem('ngpt_google_cred', credential);
+  showStep('load');
+  setTimeout(function() {
+    if (typeof go==='function') { go('chat'); }
+    else {
+      var l=document.getElementById('screen-login'), c=document.getElementById('screen-chat');
+      if(l){l.classList.remove('on');l.style.display='none';}
+      if(c){c.style.display='flex';c.classList.add('on');}
+    }
+  }, 700);
+}
+
+function googleSignOut() {
+  if (typeof google!=='undefined') google.accounts.id.disableAutoSelect();
+  localStorage.removeItem('ngpt_auth');
+  localStorage.removeItem('ngpt_google_user');
+  localStorage.removeItem('ngpt_google_cred');
+  // Chats, API keys, settings intentionally kept so they reload after next login
+}
+
+window.addEventListener('load', function() { setTimeout(initGoogleAuth, 400); });
 
 var _deferredPrompt=null;
 window.addEventListener('beforeinstallprompt',function(e){
