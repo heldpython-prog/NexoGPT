@@ -361,8 +361,8 @@ html,body{height:100%;overflow:hidden;font-family:'Inter','Google Sans','Roboto'
 .ai-body a.map-card{display:inline-flex;align-items:center;gap:7px;text-decoration:none;background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.22);border-radius:var(--r-sm);padding:7px 13px;color:#4ade80;font-size:13px;font-weight:600;transition:all .15s;margin:2px 0;vertical-align:middle}
 .ai-body a.map-card:hover{background:rgba(74,222,128,.14);transform:translateY(-1px)}
 .ai-body hr{border:none;border-top:1px solid var(--bd);margin:1.4em 0}
-.ai-body blockquote{border-left:3px solid var(--a);padding:.6em 1.1em;background:var(--s3);border-radius:0 var(--r-sm) var(--r-sm) 0;color:var(--t2);margin:.8em 0}
-.ai-body .ic{background:#f1f5f9;border:1px solid #e2e8f0;color:var(--t1);padding:.1em .45em;border-radius:5px;font-size:.83em;font-family:'Monaco','Menlo','Cascadia Code',monospace}
+.ai-body blockquote{border-left:3px solid var(--a);padding:.6em 1.1em;background:#252528;border-radius:0 var(--r-sm) var(--r-sm) 0;color:var(--t2);margin:.8em 0}
+.ai-body .ic{background:#2d2d30;border:1px solid #444;color:#e2b45a;padding:.1em .45em;border-radius:5px;font-size:.83em;font-family:'Monaco','Menlo','Cascadia Code',monospace}
 .ai-body .cb{background:#0b0e14;border:1px solid rgba(255,255,255,.07);border-radius:var(--r-md);overflow:hidden;margin:1.1em 0;box-shadow:0 4px 24px rgba(0,0,0,.4)}
 .ai-body .cbar{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:linear-gradient(90deg,rgba(255,255,255,.03),rgba(255,255,255,.015));border-bottom:1px solid rgba(255,255,255,.06)}
 .ai-body .clang-wrap{display:flex;align-items:center;gap:6px}
@@ -382,8 +382,8 @@ html,body{height:100%;overflow:hidden;font-family:'Inter','Google Sans','Roboto'
 .ai-body .ln-code{flex:1;overflow-x:auto;padding:16px 18px 16px 16px}
 .ai-body .ln-code code{padding:0;background:transparent;font-size:13px;line-height:1.7;font-family:'Monaco','Menlo','Cascadia Code',monospace}
 .ai-body table{border-collapse:collapse;width:100%;margin:.9em 0;font-size:13.5px;border-radius:var(--r-md);overflow:hidden;border:1px solid var(--bd2)}
-.ai-body th{background:var(--s3);color:var(--t2);padding:10px 15px;text-align:left;border-bottom:1px solid var(--bd2);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
-.ai-body td{padding:9px 15px;border-bottom:1px solid var(--bd);color:var(--t2)}
+.ai-body th{background:#2b2b2b;color:#a0a0a0;padding:10px 15px;text-align:left;border-bottom:1px solid var(--bd2);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.ai-body td{padding:9px 15px;border-bottom:1px solid #3d3d3d;color:#c0c0c0}
 .ai-body tr:last-child td{border-bottom:none}
 .ai-body tbody tr:hover td{background:var(--s2)}
 .mact{display:flex;gap:2px;margin-top:8px;opacity:0;transition:opacity .12s}
@@ -648,27 +648,30 @@ input,select,textarea,button{font-family:'Inter','Google Sans','Roboto','Segoe U
 </div><div class="modal-footer"><button class="modal-btn primary" onclick="closeModal('modal-apikeys')">Done</button></div></div></div>
 <div id="screen-login" class="screen vcenter on">
   <div class="lw"><div class="lcard">
-    <div class="lhero"><div class="l-logo"><svg width="28" height="28" viewBox="0 0 24 24"><g transform="rotate(45 12 12)"><path d="M12 2c0 0-.8 4.2-3.2 6.8C6.2 11.2 2 12 2 12s4.2.8 6.8 3.2C11.2 17.8 12 22 12 22s.8-4.2 3.2-6.8C17.8 12.8 22 12 22 12s-4.2-.8-6.8-3.2C12.8 6.2 12 2 12 2z" fill="#475569"/></g></svg></div><div class="l-brand">NexoGPT</div><div class="l-sub">Advanced AI · 2026</div></div>
+    <div class="lhero"><div class="l-logo"><svg width="28" height="28" viewBox="0 0 24 24"><g transform="rotate(45 12 12)"><path d="M12 2c0 0-.8 4.2-3.2 6.8C6.2 11.2 2 12 2 12s4.2.8 6.8 3.2C11.2 17.8 12 22 12 22s.8-4.2 3.2-6.8C17.8 12.8 22 12 22 12s-4.2-.8-6.8-3.2C12.8 6.2 12 2 12 2z" fill="#475569"/></g></svg></div><div class="l-brand">NexoGPT</div><div class="l-sub">Your AI Assistant · 2026</div></div>
     <div class="lbody">
-      <div id="step-choose"><div class="lstep-t">Welcome back</div><div class="lstep-s">Sign in or create an account to continue</div><button class="btn-primary" style="margin-bottom:10px" onclick="showStep('signin')">Sign in with email</button><button class="btn-outline" onclick="showStep('signup')">Create account</button></div>
-      <div id="step-signin" style="display:none"><div class="lstep-t">Sign in</div><div class="lstep-s">Enter your credentials</div>
+      <!-- step-choose hidden, signin shown by default -->
+      <div id="step-choose" style="display:none"></div>
+      <div id="step-signin">
+        <div class="lstep-t" style="text-align:center;margin-bottom:4px">Welcome back 👋</div>
+        <div class="lstep-s" style="text-align:center;margin-bottom:20px">Sign in to continue</div>
         <div class="ifield"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><input type="email" id="signin-email" placeholder="your@email.com" autocomplete="email" onkeydown="if(event.key==='Enter')document.getElementById('signin-pwd').focus()"/></div>
         <div class="ifield"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><input type="password" id="signin-pwd" placeholder="Password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doSignIn()"/></div>
         <div class="remember-row"><input type="checkbox" id="remember-me" checked/><label for="remember-me">Remember me for 30 days</label></div>
         <div class="ferr" id="signin-err"></div>
         <button class="btn-primary" onclick="doSignIn()">Sign in</button>
-        <button class="back-link" onclick="showStep('choose')">← Back</button>
-        <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--t3)">No account? <button class="text-link" onclick="showStep('signup')">Sign up</button></div>
+        <div style="text-align:center;margin-top:14px;font-size:12.5px;color:var(--t3)">No account? <button class="text-link" onclick="showStep('signup')">Create one free →</button></div>
       </div>
-      <div id="step-signup" style="display:none"><div class="lstep-t">Create account</div><div class="lstep-s">Join NexoGPT for free</div>
+      <div id="step-signup" style="display:none">
+        <div class="lstep-t" style="text-align:center;margin-bottom:4px">Create account</div>
+        <div class="lstep-s" style="text-align:center;margin-bottom:20px">Join NexoGPT — it's free</div>
         <div class="ifield"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><input type="text" id="signup-name" placeholder="Your name" autocomplete="name" onkeydown="if(event.key==='Enter')document.getElementById('signup-email').focus()"/></div>
         <div class="ifield"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><input type="email" id="signup-email" placeholder="your@email.com" autocomplete="email" onkeydown="if(event.key==='Enter')document.getElementById('signup-pwd').focus()"/></div>
         <div class="ifield"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><input type="password" id="signup-pwd" placeholder="Password (min 6 chars)" autocomplete="new-password" onkeydown="if(event.key==='Enter')document.getElementById('signup-pwd2').focus()"/></div>
         <div class="ifield"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><input type="password" id="signup-pwd2" placeholder="Confirm password" autocomplete="new-password" onkeydown="if(event.key==='Enter')doSignUp()"/></div>
         <div class="ferr" id="signup-err"></div>
         <button class="btn-primary" onclick="doSignUp()">Create account</button>
-        <button class="back-link" onclick="showStep('choose')">← Back</button>
-        <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--t3)">Have an account? <button class="text-link" onclick="showStep('signin')">Sign in</button></div>
+        <div style="text-align:center;margin-top:14px;font-size:12.5px;color:var(--t3)">Already have an account? <button class="text-link" onclick="showStep('signin')">Sign in →</button></div>
       </div>
       <div id="step-load" style="display:none"><div class="spinner-wrap"><div class="spinner"></div><p>Signing you in…</p></div></div>
     </div>
@@ -1719,7 +1722,7 @@ S.mode=localStorage.getItem('ngpt_mode')||'standard';
 var savedModel=localStorage.getItem('ngpt_model');var planModelMap={free:'spark',pro:'nova',business:'nexus',empire:'titan',dev:'titan'};var correctModel=planModelMap[S.plan]||'spark';S.model=savedModel&&ALL_MODELS.find(function(m){return m.id===savedModel;})?savedModel:correctModel;
 if(typeof restoreUserKeys==='function')restoreUserKeys(S.user);setTimeout(checkGroqKey,1500);
 if(_settings.siteLang)applySiteLang(_settings.siteLang);
-go('chat');}else{clearSession();S.user='';go('login');}initScrollFab();checkShareHash();}
+go('chat');}else{clearSession();S.user='';go('login');showStep('signin');}initScrollFab();checkShareHash();}
 function checkShareHash(){var h=window.location.hash;if(!h.startsWith('#share='))return;try{var data=JSON.parse(decodeURIComponent(escape(atob(h.slice(7)))));if(!data||!Array.isArray(data.msgs))return;['login','plans','redeem','dev','chat'].forEach(function(s){var el=document.getElementById('screen-'+s);if(el){el.style.display='none';el.classList.remove('on');}});var el=document.createElement('div');el.style.cssText='display:flex;flex-direction:column;height:100vh;background:var(--bg);overflow-y:auto;padding:24px 0;';var inner=document.createElement('div');inner.style.cssText='max-width:760px;margin:0 auto;padding:0 24px;width:100%;';inner.innerHTML='<div style="font-size:20px;font-weight:800;color:var(--t1);margin-bottom:6px">'+escHtml(data.title||'Shared Chat')+'</div><div style="font-size:12px;color:var(--t3);margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--bd)">Read-only shared conversation \u2014 <a href="'+window.location.pathname+'" style="color:var(--a)">Open NexoGPT</a></div>';data.msgs.forEach(function(m){var row=document.createElement('div');row.style.cssText='margin-bottom:20px;display:flex;flex-direction:column;align-items:'+(m.r==='user'?'flex-end':'flex-start');if(m.r==='user'){var bub=document.createElement('div');bub.style.cssText='background:var(--s3);border:1px solid var(--bd2);border-radius:18px 18px 4px 18px;padding:12px 18px;max-width:72%;font-size:13px;line-height:1.72;color:var(--t1);';bub.textContent=m.c;row.appendChild(bub);}else{var aiR=document.createElement('div');aiR.style.cssText='display:flex;align-items:flex-start;gap:12px;max-width:100%;';var av=document.createElement('div');av.style.cssText='width:28px;height:28px;border-radius:50%;background:#f8fafc;border:1.5px solid #e2e8f0;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:2px;';av.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24"><g transform="rotate(45 12 12)"><path d="M12 2c0 0-.8 4.2-3.2 6.8C6.2 11.2 2 12 2 12s4.2.8 6.8 3.2C11.2 17.8 12 22 12 22s.8-4.2 3.2-6.8C17.8 12.8 22 12 22 12s-4.2-.8-6.8-3.2C12.8 6.2 12 2 12 2z" fill="#475569"/></g></svg>';var body=document.createElement('div');body.style.cssText='font-size:13.5px;line-height:1.85;color:var(--t1);flex:1;';try{body.innerHTML=parseMd(m.c);}catch(e2){body.textContent=m.c;}aiR.appendChild(av);aiR.appendChild(body);row.appendChild(aiR);}inner.appendChild(row);});el.appendChild(inner);document.body.appendChild(el);}catch(e){}}
 function openModal(id){var m=document.getElementById(id);if(m)m.classList.add('on');}
 function closeModal(id){var m=document.getElementById(id);if(m)m.classList.remove('on');}
