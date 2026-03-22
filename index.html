@@ -4,12 +4,12 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes"/>
 <title>NexoGPT</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f2328'/%3E%3Cg transform='rotate(45 16 16)'%3E%3Cpath d='M16 4s-1 5.5-4.2 8.8C8.5 16 3 16 3 16s5.5 1 8.8 4.2C15 23.5 16 29 16 29s1-5.5 4.2-8.8C23.5 17 29 16 29 16s-5.5-1-8.8-4.2C17 8.5 16 4 16 4z' fill='white'/%3E%3C/g%3E%3C/svg%3E"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234361ee'/%3E%3Cg transform='rotate(45 16 16)'%3E%3Cpath d='M16 4s-1 5.5-4.2 8.8C8.5 16 3 16 3 16s5.5 1 8.8 4.2C15 23.5 16 29 16 29s1-5.5 4.2-8.8C23.5 17 29 16 29 16s-5.5-1-8.8-4.2C17 8.5 16 4 16 4z' fill='white'/%3E%3C/g%3E%3C/svg%3E"/>
 <meta name="theme-color" content="#18181b" id="theme-meta"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
 <meta name="apple-mobile-web-app-title" content="NexoGPT"/>
-<link rel="manifest" href="data:application/json,{&quot;name&quot;:&quot;NexoGPT&quot;,&quot;short_name&quot;:&quot;NexoGPT&quot;,&quot;start_url&quot;:&quot;/&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%23f0f4f9&quot;,&quot;theme_color&quot;:&quot;%23f0f4f9&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='32' fill='%231f2328'/%3E%3Cg transform='rotate(45 96 96)'%3E%3Cpath d='M96 16s-6 33-25 52-55 25-55 25 36 6 55 25 25 55 25 55 6-33 25-52 55-25 55-25-36-6-55-25-25-52-25-52z' fill='white'/%3E%3C/g%3E%3C/svg%3E&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;}]}"/>
+<link rel="manifest" href="data:application/json,{&quot;name&quot;:&quot;NexoGPT&quot;,&quot;short_name&quot;:&quot;NexoGPT&quot;,&quot;start_url&quot;:&quot;/&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%23f0f4f9&quot;,&quot;theme_color&quot;:&quot;%23f0f4f9&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='32' fill='%234361ee'/%3E%3Cg transform='rotate(45 96 96)'%3E%3Cpath d='M96 16s-6 33-25 52-55 25-55 25 36 6 55 25 25 55 25 55 6-33 25-52 55-25 55-25-36-6-55-25-25-52-25-52z' fill='white'/%3E%3C/g%3E%3C/svg%3E&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;}]}"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
@@ -275,7 +275,7 @@ html,body{height:100%;overflow:hidden;font-family:'Inter','Google Sans','Roboto'
 .tb-menu:hover{background:var(--s3);color:var(--t1)}
 .m-pill{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:6px;border:1px solid #252525;background:transparent;color:#8a8a8a;font-size:13px;font-size:12.5px;cursor:pointer;font-family:inherit;font-weight:500;transition:all .15s;position:relative;white-space:nowrap}
 .m-pill:hover{border-color:#383838;color:#ececec;background:#1a1a1a;}
-.live-dot{width:6px;height:6px;border-radius:50%;background:#94a3b8;flex-shrink:0}
+.live-dot{display:none}
 .m-drop{position:absolute;top:calc(100% + 10px);left:0;background:#161616;border:1px solid #222222;border-radius:10px;padding:5px;min-width:260px;box-shadow:0 24px 64px rgba(0,0,0,.12);z-index:200;animation:dropIn .18s var(--ease-out) both}
 .m-dhead{padding:6px 10px 9px;border-bottom:1px solid var(--bd);margin-bottom:5px}
 .m-dhead span{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--t3)}
@@ -589,6 +589,375 @@ input,select,textarea,button{font-family:'Inter','Google Sans','Roboto','Segoe U
 .setting-label,.shortcut-desc,.usage-stat-label{font-family:'Inter','Google Sans','Roboto','Segoe UI',system-ui,Arial,sans-serif}
 </style>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   NEXOGPT — DeepSeek-accurate Design System
+   ═══════════════════════════════════════════════ */
+:root {
+  --bg:    #0e1117;
+  --s1:    #131720;
+  --s2:    #181d2a;
+  --s3:    #1e2436;
+  --s4:    #252d45;
+  --bd:    rgba(99,120,198,.1);
+  --bd2:   #1e2848;
+  --bd3:   #263060;
+  --a:     #4d6ef5;
+  --al:    #6b87ff;
+  --ah:    #3a58e0;
+  --a10:   rgba(77,110,245,.1);
+  --a15:   rgba(77,110,245,.15);
+  --a06:   rgba(77,110,245,.06);
+  --a-glow:rgba(77,110,245,.28);
+  --t1:    #e8ecf5;
+  --t2:    #8892b8;
+  --t3:    #4a5580;
+  --user-msg-bg: #111827;
+  --nav-w: 256px;
+  --r-sm:  10px; --r-md: 14px; --r-lg: 20px; --r-xl: 24px;
+  --ease-out: cubic-bezier(.16,1,.3,1);
+  --ease-spring: cubic-bezier(.34,1.2,.64,1);
+  --shadow: 0 4px 24px rgba(0,0,0,.5);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,.65);
+}
+
+/* ── Base ── */
+html, body {
+  font-family: 'DM Sans', system-ui, sans-serif !important;
+  background: var(--bg) !important;
+  color: var(--t1) !important;
+  -webkit-font-smoothing: antialiased;
+}
+code, pre, .kbd, .kv, .session-cost-val, .token-counter,
+.art-code-view code, .input-ta, .att-chip-text-preview {
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace !important;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  background: #0b0e18 !important;
+  border-right: 1px solid rgba(99,120,198,.12) !important;
+  width: var(--nav-w) !important;
+}
+.sb-top { border-bottom: 1px solid rgba(99,120,198,.1) !important; padding: 14px 12px 10px !important; }
+.sb-brand-name { font-size: 15px !important; font-weight: 700 !important; letter-spacing: -.02em !important; color: var(--t1) !important; }
+.sb-brand-icon { background: var(--a10) !important; border: 1px solid var(--a15) !important; border-radius: 10px !important; }
+.nc-btn {
+  background: transparent !important;
+  border: 1px solid var(--bd2) !important;
+  color: var(--t2) !important;
+  border-radius: 10px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 9px 13px !important;
+  transition: all .15s !important;
+}
+.nc-btn:hover { background: var(--s2) !important; border-color: var(--bd3) !important; color: var(--t1) !important; }
+.sb-search { background: var(--s2) !important; border: 1px solid var(--bd2) !important; border-radius: 10px !important; margin: 8px 10px 4px !important; }
+.sb-search:focus-within { border-color: var(--a) !important; }
+.ci { border-radius: 8px !important; color: var(--t2) !important; transition: background .1s, color .1s !important; margin: 1px 4px !important; padding: 7px 10px !important; }
+.ci:hover { background: var(--s2) !important; color: var(--t1) !important; }
+.ci.on { background: var(--a10) !important; color: var(--t1) !important; border-left: 2px solid var(--a) !important; font-weight: 500 !important; }
+.sb-section { font-size: 10px !important; color: var(--t3) !important; padding: 10px 14px 4px !important; letter-spacing: .1em !important; }
+.sb-divider { background: rgba(99,120,198,.1) !important; }
+.sb-nav-btn { color: var(--t2) !important; border-radius: 8px !important; padding: 8px 12px !important; font-size: 13px !important; font-weight: 400 !important; }
+.sb-nav-btn:hover { background: var(--s2) !important; color: var(--t1) !important; }
+.sb-user { border-top: 1px solid rgba(99,120,198,.1) !important; padding: 12px 14px !important; }
+.sb-av { background: var(--a15) !important; color: var(--a) !important; border-radius: 50% !important; font-weight: 700 !important; font-size: 13px !important; }
+.sb-email { color: var(--t1) !important; font-size: 12.5px !important; font-weight: 500 !important; }
+.usage-bar-track { background: var(--s3) !important; height: 3px !important; }
+.usage-bar-fill { background: linear-gradient(90deg, var(--a), var(--al)) !important; }
+
+/* ── Topbar ── */
+.topbar {
+  background: rgba(11,14,24,.92) !important;
+  border-bottom: 1px solid rgba(99,120,198,.1) !important;
+  backdrop-filter: blur(16px) !important;
+  height: 54px !important;
+  padding: 0 18px !important;
+}
+.m-pill {
+  border: 1px solid var(--bd2) !important;
+  background: transparent !important;
+  color: var(--t2) !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 6px 12px !important;
+  gap: 7px !important;
+}
+.m-pill:hover { background: var(--s2) !important; border-color: var(--bd3) !important; color: var(--t1) !important; }
+.tb-menu, .tb-icon-btn { border-radius: 8px !important; color: var(--t2) !important; }
+.tb-menu:hover, .tb-icon-btn:hover { background: var(--s2) !important; color: var(--t1) !important; }
+.tb-icon-btn.active { background: var(--a10) !important; color: var(--a) !important; }
+.m-drop { background: #0f1422 !important; border: 1px solid var(--bd2) !important; border-radius: 12px !important; box-shadow: 0 20px 60px rgba(0,0,0,.5) !important; }
+.m-opt:hover { background: var(--s2) !important; }
+.m-opt.msel { background: var(--a06) !important; border: 1px solid var(--a10) !important; }
+.live-dot { display: none !important; }
+
+/* ── Welcome screen ── */
+.welcome { padding: 72px 0 32px !important; }
+.w-logo {
+  width: 60px !important; height: 60px !important;
+  background: linear-gradient(135deg, var(--a10), var(--s3)) !important;
+  border: 1.5px solid var(--a15) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 8px 32px var(--a-glow) !important;
+}
+.w-title {
+  font-size: 34px !important;
+  font-weight: 700 !important;
+  letter-spacing: -.03em !important;
+  background: linear-gradient(135deg, #e8ecf5 20%, var(--a) 60%, var(--al)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+.w-sub { color: var(--t3) !important; font-size: 14px !important; }
+
+/* ── Message bubbles ── */
+.mrow { padding: 10px 0 !important; }
+.ai-body { font-size: 15px !important; line-height: 1.85 !important; color: var(--t1) !important; }
+.ubub {
+  background: var(--s2) !important;
+  border: 1px solid var(--bd2) !important;
+  border-radius: 18px 18px 4px 18px !important;
+  padding: 12px 18px !important;
+  font-size: 14.5px !important;
+  line-height: 1.7 !important;
+  color: var(--t1) !important;
+}
+.arow-av {
+  width: 30px !important; height: 30px !important;
+  background: linear-gradient(135deg, var(--a), var(--al)) !important;
+  border-radius: 50% !important;
+  border: none !important;
+  flex-shrink: 0 !important;
+  box-shadow: 0 2px 10px var(--a-glow) !important;
+}
+.mact-btn {
+  background: transparent !important;
+  border: 1px solid var(--bd) !important;
+  color: var(--t3) !important;
+  border-radius: 7px !important;
+  font-size: 11.5px !important;
+  padding: 4px 10px !important;
+  transition: all .12s !important;
+}
+.mact-btn:hover { background: var(--s2) !important; color: var(--t2) !important; border-color: var(--bd2) !important; }
+
+/* ── Code blocks ── */
+.ai-body pre {
+  background: #0d1020 !important;
+  border: 1px solid var(--bd2) !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+.code-header {
+  background: var(--s2) !important;
+  border-bottom: 1px solid var(--bd2) !important;
+  padding: 8px 14px !important;
+}
+
+/* ── Input area ── */
+.input-area {
+  background: var(--bg) !important;
+  padding: 8px 20px 20px !important;
+}
+.input-area::before {
+  background: linear-gradient(transparent, var(--bg)) !important;
+  height: 50px !important; top: -50px !important;
+}
+.input-card {
+  background: var(--s1) !important;
+  border: 1px solid var(--bd2) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 0 0 1px rgba(77,110,245,.04), 0 4px 24px rgba(0,0,0,.3) !important;
+  transition: border-color .2s, box-shadow .2s !important;
+}
+.input-card:focus-within {
+  border-color: rgba(77,110,245,.4) !important;
+  box-shadow: 0 0 0 3px rgba(77,110,245,.08), 0 4px 24px rgba(0,0,0,.3) !important;
+}
+.input-ta {
+  font-size: 14.5px !important;
+  color: var(--t1) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  line-height: 1.7 !important;
+}
+.input-ta::placeholder { color: var(--t3) !important; }
+.input-top { padding: 14px 16px 10px !important; }
+.input-bot { padding: 0 14px 12px !important; }
+.send-btn {
+  width: 36px !important; height: 36px !important;
+  border-radius: 10px !important;
+  background: var(--a) !important;
+  box-shadow: 0 2px 12px var(--a15) !important;
+  transition: all .15s var(--ease-spring) !important;
+}
+.send-btn:hover:not(:disabled) { background: var(--al) !important; transform: scale(1.06) !important; box-shadow: 0 4px 20px var(--a-glow) !important; }
+.send-btn:disabled { background: var(--s3) !important; box-shadow: none !important; opacity: .5 !important; }
+.i-tbtn { font-size: 12px !important; color: var(--t3) !important; border-radius: 7px !important; padding: 4px 10px !important; }
+.i-tbtn:hover { background: var(--s3) !important; color: var(--t2) !important; }
+.i-hint { color: var(--t3) !important; font-size: 11.5px !important; }
+.voice-btn { border: 1px solid var(--bd2) !important; color: var(--t3) !important; border-radius: 50% !important; }
+.voice-btn:hover { background: var(--s3) !important; color: var(--t2) !important; border-color: var(--bd3) !important; }
+
+/* ── Mode/routing pills ── */
+.mode-pill { border-color: var(--bd) !important; color: var(--t3) !important; border-radius: 8px !important; font-size: 12px !important; }
+.mode-pill:hover, .mode-pill.on { border-color: var(--bd2) !important; color: var(--a) !important; background: var(--a06) !important; }
+.mode-drop { background: #0f1422 !important; border: 1px solid var(--bd2) !important; border-radius: 12px !important; box-shadow: 0 -20px 60px rgba(0,0,0,.5) !important; }
+.mode-opt:hover { background: var(--s2) !important; }
+.mode-opt.modesel { background: var(--a06) !important; }
+.mode-ico { background: var(--s3) !important; color: var(--t3) !important; }
+.mode-opt.modesel .mode-ico { background: var(--a10) !important; color: var(--a) !important; }
+
+/* ── Modals ── */
+.modal { background: #0f1422 !important; border: 1px solid var(--bd2) !important; border-radius: 14px !important; box-shadow: 0 20px 60px rgba(0,0,0,.6) !important; }
+.modal-head { border-bottom: 1px solid rgba(99,120,198,.1) !important; padding: 18px 22px 14px !important; }
+.modal-title { color: var(--t1) !important; font-size: 16px !important; font-weight: 700 !important; letter-spacing: -.02em !important; }
+.modal-body { background: transparent !important; }
+.modal-footer { border-top: 1px solid rgba(99,120,198,.1) !important; }
+.modal-btn.primary { background: var(--a) !important; box-shadow: 0 4px 16px var(--a15) !important; }
+.modal-btn.ghost { background: var(--s2) !important; border: 1px solid var(--bd2) !important; color: var(--t2) !important; }
+.modal-btn.ghost:hover { background: var(--s3) !important; color: var(--t1) !important; }
+
+/* ── Toast ── */
+.toast {
+  background: #131720 !important;
+  border: 1px solid var(--bd2) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 36px rgba(0,0,0,.5) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 10px 20px !important;
+  color: var(--t1) !important;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px !important; }
+::-webkit-scrollbar-track { background: transparent !important; }
+::-webkit-scrollbar-thumb { background: var(--s4) !important; border-radius: 4px !important; }
+::-webkit-scrollbar-thumb:hover { background: var(--bd3) !important; }
+
+/* ── Search/typing indicators ── */
+.search-card, .synth-card { background: var(--s2) !important; border: 1px solid var(--bd2) !important; border-radius: 12px !important; }
+.typ-dot { background: var(--t3) !important; }
+.think-ind { color: var(--t3) !important; }
+.think-sp { border-color: var(--bd2) !important; border-top-color: var(--a) !important; }
+
+/* ── Plan cards ── */
+.pcard { background: var(--s1) !important; border: 1px solid var(--bd2) !important; border-radius: 14px !important; }
+.pcard:hover { border-color: var(--a) !important; box-shadow: 0 12px 40px rgba(77,110,245,.15) !important; }
+
+/* ── Mobile nav ── */
+.mobile-nav { background: rgba(11,14,24,.96) !important; border-top: 1px solid rgba(99,120,198,.1) !important; backdrop-filter: blur(20px) !important; }
+.mob-btn:hover, .mob-btn.active { color: var(--a) !important; background: var(--a06) !important; }
+
+/* ── Suggestion cards (when visible) ── */
+.sug-card { background: var(--s1) !important; border: 1px solid var(--bd2) !important; border-radius: 12px !important; }
+.sug-card:hover { border-color: var(--bd3) !important; background: var(--s2) !important; transform: translateY(-2px) !important; box-shadow: 0 8px 24px rgba(0,0,0,.3) !important; }
+
+/* ── Settings toggles ── */
+.toggle-slider { background: var(--s4) !important; border-color: var(--bd2) !important; }
+.toggle-switch input:checked + .toggle-slider { background: var(--a) !important; border-color: var(--a) !important; }
+
+/* ── Dev screen ── */
+.dev-box { background: var(--s1) !important; border: 1px solid var(--bd2) !important; border-radius: 12px !important; }
+.dev-keybox { background: var(--s2) !important; border: 1px solid var(--bd2) !important; border-radius: 8px !important; color: var(--a) !important; }
+
+/* ── Export dropdown ── */
+.export-drop { background: #0f1422 !important; border: 1px solid var(--bd2) !important; border-radius: 12px !important; box-shadow: 0 -16px 48px rgba(0,0,0,.5) !important; }
+.export-opt:hover { background: var(--s2) !important; color: var(--t1) !important; }
+
+/* ── Scroll FAB ── */
+.scroll-fab { background: var(--s2) !important; border-color: var(--bd2) !important; color: var(--t2) !important; }
+.scroll-fab:hover { background: var(--a) !important; color: #fff !important; border-color: var(--a) !important; }
+
+/* ── PWA banner ── */
+.pwa-banner { background: var(--s1) !important; border: 1px solid var(--bd2) !important; border-radius: 14px !important; }
+</style>
+
+<style>
+/* ══ Classic UI overrides ══ */
+
+/* Softer background — classic dark, not intense navy */
+:root {
+  --bg:  #111318 !important;
+  --s1:  #17191f !important;
+  --s2:  #1c1e26 !important;
+  --s3:  #22242e !important;
+  --s4:  #2a2d3a !important;
+  --bd:  rgba(255,255,255,.06) !important;
+  --bd2: #2a2d3a !important;
+  --bd3: #353848 !important;
+  --a:   #5b7af5 !important;
+  --al:  #7490ff !important;
+  --t1:  #e4e6ed !important;
+  --t2:  #8b8fa8 !important;
+  --t3:  #4e526a !important;
+  --a10: rgba(91,122,245,.1) !important;
+  --a15: rgba(91,122,245,.15) !important;
+  --a06: rgba(91,122,245,.06) !important;
+  --a-glow: rgba(91,122,245,.2) !important;
+}
+
+/* No glowing send button */
+.send-btn { box-shadow: none !important; }
+.send-btn:hover:not(:disabled) { transform: none !important; box-shadow: none !important; background: var(--ah) !important; }
+
+/* No glowing logo */
+.w-logo { box-shadow: none !important; background: var(--s2) !important; border: 1px solid var(--bd2) !important; }
+
+/* Flat sidebar brand icon */
+.sb-brand-icon { background: var(--s3) !important; border: 1px solid var(--bd2) !important; }
+
+/* AI avatar — simple flat circle, no glow */
+.arow-av { background: var(--s3) !important; box-shadow: none !important; border: 1px solid var(--bd2) !important; }
+
+/* Model pill — classic flat */
+.m-pill { border-radius: 6px !important; }
+.m-drop { border-radius: 8px !important; box-shadow: 0 8px 24px rgba(0,0,0,.4) !important; }
+
+/* Topbar — solid, no blur */
+.topbar { backdrop-filter: none !important; background: var(--s1) !important; }
+
+/* Sidebar — same dark as bg */
+.sidebar { background: var(--s1) !important; }
+
+/* Input card — flat, no glow */
+.input-card { box-shadow: none !important; border-radius: 12px !important; }
+.input-card:focus-within { border-color: var(--bd3) !important; box-shadow: none !important; }
+
+/* Welcome title — plain white, no gradient */
+.w-title {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: var(--t1) !important;
+  background-clip: unset !important;
+  color: var(--t1) !important;
+  font-size: 30px !important;
+  font-weight: 600 !important;
+}
+
+/* Modal — subtle, classic */
+.modal { border-radius: 10px !important; box-shadow: 0 8px 32px rgba(0,0,0,.5) !important; }
+
+/* Scroll FAB — no flashy hover */
+.scroll-fab:hover { background: var(--s3) !important; color: var(--t1) !important; border-color: var(--bd3) !important; transform: none !important; }
+
+/* Chat items — no left border highlight */
+.ci.on { border-left: none !important; background: var(--s2) !important; }
+
+/* Plan cards */
+.pcard:hover { box-shadow: 0 4px 16px rgba(0,0,0,.3) !important; }
+
+/* Code blocks */
+.ai-body pre { border-radius: 8px !important; }
+</style>
 </head>
 <body>
 
@@ -839,7 +1208,7 @@ input,select,textarea,button{font-family:'Inter','Google Sans','Roboto','Segoe U
     <div class="topbar">
       <div class="tb-left">
         <button class="tb-menu"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-        <div style="position:relative"><button class="m-pill" id="m-pill-btn"><span class="live-dot"></span><span id="m-label">Spark</span><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="m-drop" id="m-drop" style="display:none"></div></div>
+        <div style="position:relative"><button class="m-pill" id="m-pill-btn"><span id="m-label">Spark</span><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="m-drop" id="m-drop" style="display:none"></div></div>
         <button class="chat-prompt-badge" id="chat-prompt-badge" onclick="openChatPrompt()"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Prompt</button>
       </div>
       <div class="tb-right">
@@ -968,28 +1337,33 @@ var _SEC = (function() {
   }
 
   // ── 2. Login Lockout (5 fails = 15 min lockout) ───────────
-  function getLoginLock() {
-    try { return JSON.parse(localStorage.getItem(LOCK_KEY) || '{}'); } catch(e) { return {}; }
+  // Lock is keyed per-email so one user's failures don't affect another
+  function getLockKey(email) { return LOCK_KEY + (email ? '_' + btoa(email.toLowerCase()).replace(/=/g,'') : '_global'); }
+  function getLoginLock(email) {
+    try { return JSON.parse(localStorage.getItem(getLockKey(email)) || '{}'); } catch(e) { return {}; }
   }
-  function recordFailedLogin() {
-    var lock = getLoginLock();
-    lock.fails  = (lock.fails || 0) + 1;
+  function recordFailedLogin(email) {
+    var lock = getLoginLock(email);
+    lock.fails = (lock.fails || 0) + 1;
     lock.lastFail = Date.now();
     if (lock.fails >= 5) {
-      lock.lockedUntil = Date.now() + 15 * 60 * 1000; // 15 min
+      lock.lockedUntil = Date.now() + 15 * 60 * 1000;
       lock.fails = 0;
     }
-    localStorage.setItem(LOCK_KEY, JSON.stringify(lock));
+    localStorage.setItem(getLockKey(email), JSON.stringify(lock));
     return lock;
   }
-  function clearLoginFails() {
-    localStorage.removeItem(LOCK_KEY);
+  function clearLoginFails(email) {
+    localStorage.removeItem(getLockKey(email));
+    localStorage.removeItem(LOCK_KEY); // clear old global key too
   }
-  function isLoginLocked() {
-    var lock = getLoginLock();
+  function isLoginLocked(email) {
+    var lock = getLoginLock(email);
     if (lock.lockedUntil && Date.now() < lock.lockedUntil) {
       return Math.ceil((lock.lockedUntil - Date.now()) / 60000);
     }
+    // Clear expired lock
+    if (lock.lockedUntil) localStorage.removeItem(getLockKey(email));
     return false;
   }
 
@@ -1023,24 +1397,24 @@ var _SEC = (function() {
   }
 
   // ── 4. Anti-DevTools (makes key extraction harder) ────────
+  // DevTools warning using debugger timing trick (much more accurate)
   var _dtOpen = false;
-  var _dtThreshold = 160;
-  function checkDevTools() {
-    var w = window.outerWidth - window.innerWidth;
-    var h = window.outerHeight - window.innerHeight;
-    if (w > _dtThreshold || h > _dtThreshold) {
+  (function devToolsCheck() {
+    var start = performance.now();
+    // debugger pauses execution only when devtools is open
+    // eslint-disable-next-line no-debugger
+    debugger;
+    var elapsed = performance.now() - start;
+    if (elapsed > 100) {
       if (!_dtOpen) {
         _dtOpen = true;
-        // Scramble sensitive vars in memory when devtools open
-        try { console.clear(); } catch(e) {}
-        try { console.log('⚠️ NexoGPT Security ⚠️'); } catch(e) {}
-        try { console.log('This console is for developers. If someone told you to paste something here, they are trying to steal your data.'); } catch(e) {}
+        try { console.warn('⚠️ NexoGPT | This console is for developers. If someone told you to paste something here, they are trying to steal your data.'); } catch(e) {}
       }
     } else {
       _dtOpen = false;
     }
-  }
-  setInterval(checkDevTools, 1500);
+    setTimeout(devToolsCheck, 2000);
+  })();
 
   // ── 5. Security Lockout Screen ─────────────────────────────
   function showSecurityBlock(msg) {
@@ -1240,8 +1614,7 @@ var ALL_MODELS=[
   {id:'spark',name:'Spark',desc:'Fast · everyday tasks · instant',color:'#10b981',provider:'groq',modelId:'llama-3.3-70b-versatile',badge:'Free',quality:1},
   {id:'nova',name:'Nova',desc:'Smart & balanced · great for most tasks',color:'#3b82f6',provider:'groq',modelId:'llama-3.3-70b-versatile',badge:'Pro',quality:2},
   {id:'nexus',name:'Nexus',desc:'Deep reasoning · long context · analysis',color:'#8b5cf6',provider:'groq',modelId:'llama-3.3-70b-versatile',badge:'Business'},
-  {id:'titan',name:'Titan',desc:'Maximum quality · best responses',color:'#f97316',provider:'groq',modelId:'llama-3.3-70b-versatile',badge:'Empire'},
-  {id:'deepseek',name:'DeepSeek',desc:'Powerful reasoning · deep thinker',color:'#2563eb',provider:'deepseek',modelId:'deepseek-chat',badge:'New'}
+  {id:'titan',name:'Titan',desc:'Maximum quality · best responses',color:'#f97316',provider:'groq',modelId:'llama-3.3-70b-versatile',badge:'Empire'}
 ];
 var PLANS={
 free:{name:'Free',price:'$0 / mo',color:'#10b981',textColor:'#ffffff',limit:15,model:'spark',badge:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>',tagline:'Get started'},
@@ -1648,9 +2021,27 @@ S.avatar=localStorage.getItem('ngpt_avatar')||'';
 function save(){localStorage.setItem('ngpt_chats',JSON.stringify(S.chats.slice(0,120)));localStorage.setItem('ngpt_plan',S.plan);localStorage.setItem('ngpt_user',S.user);localStorage.setItem(todayKey(),String(S.used));localStorage.setItem('ngpt_model',S.model);localStorage.setItem('ngpt_mode',S.mode);localStorage.setItem('ngpt_personas',JSON.stringify(S.personas));localStorage.setItem('ngpt_model_b',S.modelB);localStorage.setItem('ngpt_folders',JSON.stringify(S.folders));if(S.avatar)localStorage.setItem('ngpt_avatar',S.avatar);}
 function getDevKeys(){try{return JSON.parse(localStorage.getItem('ngpt_devkeys')||'[]');}catch(e){return[];}}
 function setDevKeys(a){localStorage.setItem('ngpt_devkeys',JSON.stringify(a));}
-function isSessionValid(){return !!localStorage.getItem('ngpt_user');}
-function saveSession(u,r){localStorage.setItem('ngpt_user',u);}
-function clearSession(){localStorage.removeItem('ngpt_user');localStorage.removeItem('ngpt_login_time');localStorage.removeItem('ngpt_avatar');}
+function isSessionValid(){
+  var u = localStorage.getItem('ngpt_user');
+  if (!u) return false;
+  var expiry = parseInt(localStorage.getItem('ngpt_session_expiry') || '0');
+  if (expiry > 0 && Date.now() > expiry) {
+    // Session expired — clean up
+    localStorage.removeItem('ngpt_user');
+    localStorage.removeItem('ngpt_session_expiry');
+    localStorage.removeItem('ngpt_session_ts');
+    return false;
+  }
+  return true;
+}
+function saveSession(u,r){
+  localStorage.setItem('ngpt_user',u);
+  localStorage.setItem('ngpt_session_ts', Date.now().toString());
+  // 30-day expiry if remember=true, otherwise session only (cleared on signOut)
+  var expiry = r ? (Date.now() + 30*24*60*60*1000) : 0;
+  localStorage.setItem('ngpt_session_expiry', expiry.toString());
+}
+function clearSession(){localStorage.removeItem('ngpt_user');localStorage.removeItem('ngpt_login_time');localStorage.removeItem('ngpt_session_ts');localStorage.removeItem('ngpt_session_expiry');localStorage.removeItem('ngpt_avatar');}
 document.addEventListener('keydown',function(e){var c=e.ctrlKey||e.metaKey;if(e.key==='Escape'){document.querySelectorAll('.modal-bg.on').forEach(function(m){m.classList.remove('on');});closeAllDrops();stopVoice();cancelEdit();return;}var cs=document.getElementById('screen-chat');if(!cs||!cs.classList.contains('on'))return;if(c&&!e.shiftKey){if(e.key==='k'){e.preventDefault();newChat();return;}if(e.key==='/'){e.preventDefault();openModal('modal-prompts');renderPrompts();return;}if(e.key==='b'){e.preventDefault();toggleSidebar();return;}if(e.key===','){e.preventDefault();openSettings();return;}if(e.key==='m'){e.preventDefault();toggleVoice();return;}}if(c&&e.shiftKey){if(e.key==='A'){e.preventDefault();toggleABMode();return;}if(e.key==='E'){e.preventDefault();exportChat('md');return;}if(e.key==='S'){e.preventDefault();shareConversation();return;}}},false);
 function toggleSidebar(){var sb=document.getElementById('sidebar');if(!sb)return;if(window.innerWidth<=768){sb.classList.toggle('mobile-open');}else{S.sidebarOpen=!S.sidebarOpen;sb.classList.toggle('collapsed',!S.sidebarOpen);}}
 function initScrollFab(){var wrap=document.getElementById('msg-wrap');var fab=document.getElementById('scroll-fab');if(!wrap||!fab)return;wrap.addEventListener('scroll',function(){fab.classList.toggle('show',(wrap.scrollHeight-wrap.scrollTop-wrap.clientHeight)>280);},false);fab.addEventListener('click',function(){wrap.scrollTo({top:wrap.scrollHeight,behavior:'smooth'});});}
@@ -1704,7 +2095,7 @@ function go(name){['login','plans','dev','chat'].forEach(function(s){var el=docu
 function openKeysModal(){loadProviderKeys();renderKeysList('groq','groq-keys-list','groq-key-count');renderKeysList('gemini','gemini-keys-list','gemini-key-count');renderKeysList('openrouter','or-keys-list','or-key-count');renderKeysList('deepseek','deepseek-keys-list','deepseek-key-count');openModal('modal-apikeys');}
 function renderKeysList(prov,listId,countId){var list=document.getElementById(listId);var countEl=document.getElementById(countId);var keys=_keyState[prov].keys;if(countEl)countEl.textContent=keys.length?keys.length+' key'+(keys.length>1?'s':'')+' added':'';if(!list)return;if(!keys.length){list.innerHTML='';return;}list.innerHTML='';keys.forEach(function(k,i){var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:8px;padding:6px 10px;background:var(--s2);border:1px solid var(--bd);border-radius:var(--r-sm);margin-bottom:4px;';var now=Date.now();var cd=_keyState[prov].cooldowns[k]||0;var onCooldown=cd>now;var dot=document.createElement('span');dot.style.cssText='width:7px;height:7px;border-radius:50%;flex-shrink:0;background:'+(onCooldown?'#f59e0b':'#22c55e');dot.title=onCooldown?'Rate limited':'Active';var ktext=document.createElement('span');ktext.style.cssText='font-family:monospace;font-size:11.5px;color:var(--t2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';ktext.textContent=k.slice(0,8)+'...'+k.slice(-4);var del=document.createElement('button');del.style.cssText='background:none;border:none;color:var(--t3);cursor:pointer;font-size:13px;padding:2px 6px;border-radius:4px;';del.innerHTML='\u2715';del.addEventListener('click',function(){removeProviderKey(prov,i);renderKeysList(prov,listId,countId);});del.onmouseover=function(){this.style.color='#f87171';};del.onmouseout=function(){this.style.color='var(--t3)';};row.appendChild(dot);row.appendChild(ktext);row.appendChild(del);list.appendChild(row);});}
 function addKeyFromInput(prov,inputId){var input=document.getElementById(inputId);if(!input||!input.value.trim())return;var added=addProviderKey(prov,input.value.trim());if(added){input.value='';var listIds={groq:'groq-keys-list',gemini:'gemini-keys-list',openrouter:'or-keys-list',deepseek:'deepseek-keys-list'};var cntIds={groq:'groq-key-count',gemini:'gemini-key-count',openrouter:'or-key-count',deepseek:'deepseek-key-count'};renderKeysList(prov,listIds[prov],cntIds[prov]);showToast('Key added!');renderChat();}else{showToast('Key already added or invalid');}}
-function boot(){if(!localStorage.getItem('ngpt_v10')){localStorage.removeItem('ngpt_provider_keys');localStorage.removeItem('ngpt_model');localStorage.setItem('ngpt_v10','1');}loadProviderKeys();var lastE=localStorage.getItem('ngpt_last_email');if(lastE){var ef=document.getElementById('signin-email');if(ef)ef.value=lastE;}if(isSessionValid()){S.user=localStorage.getItem('ngpt_user')||'';try{var p2=JSON.parse(localStorage.getItem('ngpt_personas')||'["engineer"]');S.personas=Array.isArray(p2)?p2:['engineer'];}catch(e){S.personas=['engineer'];}
+function boot(){localStorage.removeItem('ngpt_login_lock');if(!localStorage.getItem('ngpt_v10')){localStorage.removeItem('ngpt_provider_keys');localStorage.removeItem('ngpt_model');localStorage.setItem('ngpt_v10','1');}loadProviderKeys();var lastE=localStorage.getItem('ngpt_last_email');if(lastE){var ef=document.getElementById('signin-email');if(ef)ef.value=lastE;}if(isSessionValid()){S.user=localStorage.getItem('ngpt_user')||'';try{var p2=JSON.parse(localStorage.getItem('ngpt_personas')||'["engineer"]');S.personas=Array.isArray(p2)?p2:['engineer'];}catch(e){S.personas=['engineer'];}
 S.mode='standard';localStorage.setItem('ngpt_mode','standard');
 // Assign correct model for plan if not already set
 var savedModel=localStorage.getItem('ngpt_model');var planModelMap={free:'spark',pro:'nova',business:'nexus',empire:'titan',dev:'titan'};var correctModel=planModelMap[S.plan]||'spark';S.model=savedModel&&ALL_MODELS.find(function(m){return m.id===savedModel;})?savedModel:correctModel;
@@ -1719,31 +2110,30 @@ function showStep(s){['choose','signin','signup','load'].forEach(function(n){var
 function getAccounts(){try{return JSON.parse(localStorage.getItem('ngpt_accounts')||'{}');}catch(e){return{};}}
 function setAccounts(a){localStorage.setItem('ngpt_accounts',JSON.stringify(a));}
 function doSignIn(){
-  // Security: check login lockout
-  var lockMins = _SEC.isLoginLocked();
-  if (lockMins) {
-    var err=document.getElementById('signin-err');
-    if(err) err.textContent='Too many failed attempts. Try again in '+lockMins+' min.';
-    return;
-  }
   var email=(document.getElementById('signin-email')||{value:''}).value.trim().toLowerCase();
   var pwd=(document.getElementById('signin-pwd')||{value:''}).value;
   var remember=document.getElementById('remember-me')&&document.getElementById('remember-me').checked;
   var err=document.getElementById('signin-err');
   if(!email||!email.includes('@')){if(err)err.textContent='Enter a valid email.';return;}
   if(!pwd){if(err)err.textContent='Enter your password.';return;}
+  // Security: check lockout per email
+  var lockMins = _SEC.isLoginLocked(email);
+  if (lockMins) {
+    if(err) err.textContent='Too many failed attempts for this account. Try again in '+lockMins+' min.';
+    return;
+  }
   var accs=getAccounts();
   if(!accs[email]){
-    _SEC.recordFailedLogin();
-    if(err)err.textContent='No account found. ('+((getLoginLock&&getLoginLock().fails)||1)+'/5 attempts)';
+    _SEC.recordFailedLogin(email);
+    if(err)err.textContent='No account found.';
     return;
   }
   if(accs[email].pwd!==btoa(pwd)){
-    var lock=_SEC.recordFailedLogin();
-    if(err)err.textContent='Incorrect password.'+(lock.lockedUntil?'  Locked for 15 min.':' ('+(lock.fails||1)+'/5 attempts)');
+    var lock=_SEC.recordFailedLogin(email);
+    if(err)err.textContent='Incorrect password.'+(lock.lockedUntil?' Account locked for 15 min.':' ('+(lock.fails||1)+'/5 attempts before lockout)');
     return;
   }
-  _SEC.clearLoginFails();
+  _SEC.clearLoginFails(email);
   if(err)err.textContent='';
   localStorage.setItem('ngpt_last_email',email);
   showStep('load');
@@ -2759,31 +3149,108 @@ var _googleUser = null;
 })();
 
 function initGoogleAuth() {
-  if (typeof google === 'undefined') return;
-  google.accounts.id.initialize({
-    client_id: GOOGLE_CLIENT_ID,
-    callback: handleGoogleCredential,
-    auto_select: true,
-    cancel_on_tap_outside: true,
-    itp_support: true
-  });
-  if (!localStorage.getItem('ngpt_auth')) {
-    google.accounts.id.prompt();
+  // Handle OAuth callback — Google returns token in hash fragment
+  var hash = window.location.hash;
+  if (hash && hash.length > 1) {
+    var fragParams = new URLSearchParams(hash.replace('#', ''));
+    var idToken    = fragParams.get('id_token');
+    var accToken   = fragParams.get('access_token');
+    if (idToken)     { history.replaceState(null,'',window.location.pathname); _handleGoogleToken(idToken); return; }
+    if (accToken)    { history.replaceState(null,'',window.location.pathname); _fetchGoogleProfile(accToken); return; }
   }
+  // Also check query string (some browsers)
+  var qParams = new URLSearchParams(window.location.search);
+  var qToken  = qParams.get('id_token') || qParams.get('access_token');
+  if (qToken) { history.replaceState(null,'',window.location.pathname); _handleGoogleToken(qToken); return; }
 }
 
 function doGoogleSignIn() {
-  if (typeof google === 'undefined') { showToast('Google is still loading, try again'); return; }
-  google.accounts.id.prompt(function(notification) {
-    if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-      showToast('Enable cookies/pop-ups and try again, or use email login');
-    }
+  // Build Google OAuth URL — opens a real popup window, no cookies needed
+  // Always use the root domain as redirect — must match Google Console exactly
+  var redirectUri = 'https://nexodashboard.org/';
+  var params = new URLSearchParams({
+    client_id    : GOOGLE_CLIENT_ID,
+    redirect_uri : redirectUri,
+    response_type: 'token id_token',
+    scope        : 'openid email profile',
+    nonce        : Math.random().toString(36).slice(2),
+    prompt       : 'select_account'
   });
+  var authUrl = 'https://accounts.google.com/o/oauth2/v2/auth?' + params.toString();
+
+  // Open popup
+  var w = 500, h = 600;
+  var left = (screen.width/2) - (w/2);
+  var top  = (screen.height/2) - (h/2);
+  var popup = window.open(authUrl, 'google_login',
+    'width='+w+',height='+h+',left='+left+',top='+top+',scrollbars=yes');
+
+  if (!popup) {
+    // Popup blocked — fall back to redirect
+    window.location.href = authUrl;
+    return;
+  }
+
+  // Poll for the popup to finish and return to our origin
+  var poll = setInterval(function() {
+    try {
+      if (!popup || popup.closed) { clearInterval(poll); return; }
+      var pUrl = popup.location.href;
+      if (pUrl && (pUrl.indexOf('https://nexodashboard.org') === 0 || pUrl.indexOf(window.location.origin) === 0)) {
+        clearInterval(poll);
+        var fragParams = new URLSearchParams(popup.location.hash.replace('#','?'));
+        var idToken    = fragParams.get('id_token');
+        var accessToken= fragParams.get('access_token');
+        popup.close();
+        if (idToken)     { _handleGoogleToken(idToken); return; }
+        if (accessToken) { _fetchGoogleProfile(accessToken); return; }
+        showToast('Google sign-in cancelled');
+      }
+    } catch(e) {
+      // Cross-origin — popup still on Google's page, keep polling
+    }
+  }, 300);
+}
+
+function _handleGoogleToken(idToken) {
+  try {
+    var b64 = idToken.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');
+    // Pad base64 string
+    while (b64.length % 4) b64 += '=';
+    var payload = JSON.parse(atob(b64));
+    onGoogleLoginSuccess({
+      name   : payload.name    || payload.email || 'User',
+      email  : payload.email   || '',
+      picture: payload.picture || '',
+      sub    : payload.sub     || ''
+    }, idToken);
+  } catch(e) {
+    showToast('Google sign-in failed — please try again');
+  }
+}
+
+function _fetchGoogleProfile(accessToken) {
+  // Fallback: use access token to fetch profile from Google API
+  fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+    headers: { Authorization: 'Bearer ' + accessToken }
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(profile) {
+    onGoogleLoginSuccess({
+      name   : profile.name    || profile.email || 'User',
+      email  : profile.email   || '',
+      picture: profile.picture || '',
+      sub    : profile.sub     || ''
+    }, accessToken);
+  })
+  .catch(function(){ showToast('Google sign-in failed — please try again'); });
 }
 
 function handleGoogleCredential(response) {
+  // Kept for compatibility (One Tap fallback if it ever works)
   try {
     var b64 = response.credential.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');
+    while (b64.length % 4) b64 += '=';
     var payload = JSON.parse(atob(b64));
     onGoogleLoginSuccess({
       name: payload.name||'', email: payload.email||'',
