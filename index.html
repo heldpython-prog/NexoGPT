@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>RedKnowledge · Live</title>
+  <title>RedKnowledge ·</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -131,7 +131,7 @@
     const BRAVE_KEY = 'BSAq6tL8uO4JXiBQyRqRjRQ3Qy3Qy3Q';
     const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
     const LIMIT = 20;
-    const STORAGE_KEY = 'redknowledge_final';
+    const STORAGE_KEY = 'redknowledge_domain_ready';
 
     let conversations = [], activeId = null, usage = { count:0, date:new Date().toDateString() };
     let imageBase64 = null;
@@ -190,7 +190,7 @@
     }
     async function generateTitle(conv) {
       try {
-        const resp = await fetch(OPENROUTER_URL, { method:'POST', headers:{ Authorization:`Bearer ${OPENROUTER_KEY}`, 'Content-Type':'application/json' }, body:JSON.stringify({ model:'openai/gpt-4o-mini', messages:[{ role:'user', content:`Short title: ${conv.messages[1]?.content}` }], max_tokens:20 }) });
+        const resp = await fetch(OPENROUTER_URL, { method:'POST', headers:{ Authorization:`Bearer ${OPENROUTER_KEY}`, 'Content-Type':'application/json', 'HTTP-Referer': window.location.origin }, body:JSON.stringify({ model:'openai/gpt-4o-mini', messages:[{ role:'user', content:`Short title: ${conv.messages[1]?.content}` }], max_tokens:20 }) });
         if(resp.ok) { const d=await resp.json(); conv.title=d.choices[0].message.content.trim().slice(0,30); saveData(); renderConvs(); }
       } catch(e) {}
     }
@@ -254,7 +254,17 @@
         body:JSON.stringify(payload),
         signal
       });
-      if(!res.ok) { const err = await res.json().catch(()=>({})); throw new Error(err.error?.message || 'API error'); }
+      if(!res.ok) {
+        const err = await res.json().catch(()=>({}));
+        // Provide a clear, actionable error message for referrer issues
+        if(res.status === 401 || res.status === 403) {
+          const msg = err.error?.message || '';
+          if(msg.includes('User not found') || msg.includes('referrer')) {
+            throw new Error(`REFERRER_BLOCKED: ${window.location.origin}`);
+          }
+        }
+        throw new Error(err.error?.message || 'API error');
+      }
       const reader = res.body.getReader(), decoder = new TextDecoder();
       let content='', reasoning='', toolCalls=[];
       while(true) {
@@ -343,8 +353,11 @@
         addMessage('assistant', final, { reasoning: result.reasoning, searchResults });
       } catch(e) {
         document.getElementById('typing')?.remove();
-        if(e.name === 'AbortError') addMessage('assistant', '⏹️ Request cancelled.');
-        else addMessage('assistant', `Error: ${e.message}`);
+        let errorMsg = e.message;
+        if(e.message.startsWith('REFERRER_BLOCKED')) {
+          errorMsg = `🚫 OpenRouter blocked this domain (${window.location.origin}).\n\n👉 Go to OpenRouter Keys → Edit Key → Add "${window.location.origin}" to HTTP Referrers.`;
+        }
+        addMessage('assistant', errorMsg);
       } finally {
         imageBase64 = null;
         setProcessingState(false);
