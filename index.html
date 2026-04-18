@@ -30,7 +30,7 @@
       .input-actions { gap: 2px !important; }
       .model-select-sm { padding: 6px 8px !important; font-size: 0.7rem !important; }
       .attach-btn { padding: 8px !important; }
-      .send-btn, .stop-btn, .test-btn { width: 44px !important; height: 44px !important; min-width: 44px; }
+      .send-btn, .stop-btn { width: 44px !important; height: 44px !important; min-width: 44px; }
     }
 
     .sidebar { width: 280px; background: var(--sidebar-bg); border-right: 1px solid var(--border-dim); display: flex; flex-direction: column; height: 100vh; backdrop-filter: blur(12px); }
@@ -48,8 +48,7 @@
 
     .main { flex: 1; display: flex; flex-direction: column; background: radial-gradient(circle at 10% 20%, #1a1a22 0%, #0b0b0f 100%); }
     .chat-header { padding: 1rem 1.5rem; border-bottom: 1px solid var(--border-dim); display: flex; align-items: center; justify-content: space-between; backdrop-filter: blur(8px); background: rgba(11,11,15,0.5); }
-    .header-actions { display: flex; gap: 8px; }
-    .test-btn { background: transparent; border: 1px solid var(--border-dim); color: var(--accent); padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    .chat-header h2 { font-weight: 500; font-size: 1.2rem; }
     .prompt-badge { background: #1e1e24; padding: 4px 12px; border-radius: 30px; border: 1px solid var(--border-dim); color: var(--accent); font-size: 0.8rem; }
 
     .chat-messages { flex: 1; overflow-y: auto; padding: 1.5rem 1.5rem 0.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
@@ -103,10 +102,7 @@
 <div class="main">
   <div class="chat-header">
     <h2>Assistant</h2>
-    <div class="header-actions">
-      <button class="test-btn" id="test-key-btn"><i class="fas fa-vial"></i> Test API Key</button>
-      <span class="prompt-badge" id="prompt-counter">20 left</span>
-    </div>
+    <span class="prompt-badge" id="prompt-counter">20 left</span>
   </div>
   <div class="chat-messages" id="chat-messages"></div>
   <div class="chat-input-container">
@@ -131,11 +127,11 @@
   (function(){
     "use strict";
     // ✅ YOUR NEW OPENROUTER KEY
-    const OPENROUTER_KEY = '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';
+    const OPENROUTER_KEY = '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';
     const BRAVE_KEY = 'BSAq6tL8uO4JXiBQyRqRjRQ3Qy3Qy3Q';
     const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
     const LIMIT = 20;
-    const STORAGE_KEY = 'redknowledge_newkey';
+    const STORAGE_KEY = 'redknowledge_final2';
 
     let conversations = [], activeId = null, usage = { count:0, date:new Date().toDateString() };
     let imageBase64 = null;
@@ -151,7 +147,6 @@
     const limitMsg = document.getElementById('limit-message');
     const sidebar = document.getElementById('sidebar');
     const menuToggle = document.getElementById('menuToggle');
-    const testKeyBtn = document.getElementById('test-key-btn');
 
     menuToggle.addEventListener('click', (e) => { e.stopPropagation(); sidebar.classList.toggle('open'); });
     document.addEventListener('click', (e) => { 
@@ -160,54 +155,13 @@
       }
     });
 
-    // ---------- TEST API KEY ----------
-    async function testApiKey() {
-      addMessage('assistant', '🔍 Testing OpenRouter API key...');
-      try {
-        const res = await fetch(OPENROUTER_URL, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${OPENROUTER_KEY}`,
-            'Content-Type': 'application/json',
-            'HTTP-Referer': window.location.origin
-          },
-          body: JSON.stringify({
-            model: 'openai/gpt-4o-mini',
-            messages: [{ role: 'user', content: 'Say "OK"' }],
-            max_tokens: 5
-          })
-        });
-        
-        if(res.ok) {
-          addMessage('assistant', `✅ API key is VALID! You can start chatting.`);
-        } else {
-          const err = await res.json().catch(() => ({}));
-          const status = res.status;
-          const msg = err.error?.message || 'Unknown error';
-          
-          if(status === 401 || status === 403) {
-            if(msg.includes('User not found') || msg.includes('referrer')) {
-              addMessage('assistant', `🚫 OpenRouter blocked this domain.\n\n👉 Add this exact URL to your key's HTTP Referrers:\n\n${window.location.origin}\n\nThen refresh.`);
-            } else {
-              addMessage('assistant', `❌ API key invalid: ${msg}\n\nMake sure the key is correct and active.`);
-            }
-          } else {
-            addMessage('assistant', `⚠️ API error (${status}): ${msg}`);
-          }
-        }
-      } catch(e) {
-        addMessage('assistant', `❌ Network error: ${e.message}`);
-      }
-    }
-    testKeyBtn.addEventListener('click', testApiKey);
-
     // ---------- STORAGE ----------
     function loadData() {
       const s = localStorage.getItem(STORAGE_KEY);
       if(s){ try{ const d=JSON.parse(s); conversations=d.conversations||[]; usage=d.usage||{count:0,date:new Date().toDateString()}; activeId=d.activeId||null; }catch(e){} }
       if(usage.date!==new Date().toDateString()) usage={count:0,date:new Date().toDateString()};
       if(!conversations.length) {
-        const welcomeMsg = { role:'assistant', content:'👋 Hello! I am **RedKnowledge**. Click "Test API Key" to verify connectivity, then start chatting.' };
+        const welcomeMsg = { role:'assistant', content:'👋 Hello! I am **RedKnowledge**. I can search the web and answer questions. How can I help?' };
         const newConv = { id:Date.now()+'', title:'Welcome', messages:[welcomeMsg] };
         conversations = [newConv]; activeId = newConv.id;
       } else if(!activeId||!conversations.find(c=>c.id===activeId)) activeId = conversations[0].id;
@@ -276,12 +230,12 @@
     }
 
     const TOOLS = [
-      { type:'function', function:{ name:'web_search', description:'Search the web', parameters:{ type:'object', properties:{ query:{ type:'string' } }, required:['query'] } } }
+      { type:'function', function:{ name:'web_search', description:'Search the web for current information', parameters:{ type:'object', properties:{ query:{ type:'string' } }, required:['query'] } } }
     ];
 
     async function streamChat(messages, signal) {
       const model = document.getElementById('model-select').value;
-      const sys = `You are RedKnowledge. Always identify as RedKnowledge. Use web_search when needed. Today is ${new Date().toLocaleString()}.`;
+      const sys = `You are RedKnowledge, a smart assistant. Always identify yourself as RedKnowledge. Use web_search for real-time info. Today is ${new Date().toLocaleString()}.`;
       const payload = {
         model,
         messages: [{ role:'system', content:sys }, ...messages.map(m=>({ role:m.role, content:m.content }))],
@@ -289,26 +243,21 @@
         temperature: 0.7,
         max_tokens: 1200,
         tools: TOOLS,
-        tool_choice: 'auto'
+        tool_choice: 'auto',
+        include_reasoning: true
       };
       if(imageBase64) {
         payload.messages = payload.messages.map(m=> m.role==='user' && m.content===messages[messages.length-1].content ? { role:'user', content:[{ type:'text', text:m.content }, { type:'image_url', image_url:{ url:imageBase64 } }] } : m );
       }
       const res = await fetch(OPENROUTER_URL, {
         method:'POST',
-        headers:{ Authorization:`Bearer ${OPENROUTER_KEY}`, 'Content-Type':'application/json', 'HTTP-Referer': window.location.origin },
+        headers:{ Authorization:`Bearer ${OPENROUTER_KEY}`, 'Content-Type':'application/json', 'HTTP-Referer': window.location.origin, 'X-Title': 'RedKnowledge' },
         body:JSON.stringify(payload),
         signal
       });
-      if(!res.ok) {
-        const err = await res.json().catch(()=>({}));
-        if(res.status === 401 || res.status === 403) {
-          throw new Error(`REFERRER_BLOCKED:${window.location.origin}`);
-        }
-        throw new Error(err.error?.message || 'API error');
-      }
+      if(!res.ok) { const err = await res.json().catch(()=>({})); throw new Error(err.error?.message || 'API error'); }
       const reader = res.body.getReader(), decoder = new TextDecoder();
-      let content='', toolCalls=[];
+      let content='', reasoning='', toolCalls=[];
       while(true) {
         const {done, value} = await reader.read(); if(done) break;
         const lines = decoder.decode(value, {stream:true}).split('\n');
@@ -318,9 +267,10 @@
           try {
             const json = JSON.parse(data);
             const delta = json.choices?.[0]?.delta;
+            if(delta?.reasoning) reasoning += delta.reasoning;
             if(delta?.tool_calls) {
               delta.tool_calls.forEach((tc, idx) => {
-                if(!toolCalls[idx]) toolCalls[idx] = { id: tc.id, function: { name: tc.function?.name || '', arguments: '' } };
+                if(!toolCalls[idx]) toolCalls[idx] = { id: tc.id, type: 'function', function: { name: tc.function?.name || '', arguments: '' } };
                 if(tc.function?.name) toolCalls[idx].function.name = tc.function.name;
                 if(tc.function?.arguments) toolCalls[idx].function.arguments += tc.function.arguments;
               });
@@ -329,7 +279,7 @@
           } catch(e) {}
         }
       }
-      return { content, toolCalls };
+      return { content, reasoning, toolCalls };
     }
 
     function setProcessingState(processing) {
@@ -391,14 +341,10 @@
           }
         }
         if(!final) final = "I've processed your request.";
-        addMessage('assistant', final, { searchResults });
+        addMessage('assistant', final, { reasoning: result.reasoning, searchResults });
       } catch(e) {
         document.getElementById('typing')?.remove();
-        let errorMsg = e.message;
-        if(e.message.startsWith('REFERRER_BLOCKED')) {
-          errorMsg = `🚫 OpenRouter blocked this domain.\n\n👉 Add this exact URL to your key's HTTP Referrers:\n\n${window.location.origin}\n\nThen refresh.`;
-        }
-        addMessage('assistant', errorMsg);
+        addMessage('assistant', `Error: ${e.message}`);
       } finally {
         imageBase64 = null;
         setProcessingState(false);
