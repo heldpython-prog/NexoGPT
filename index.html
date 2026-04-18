@@ -59,7 +59,6 @@
     .message-content { background: var(--bubble-assistant); padding: 1rem 1.5rem; border-radius: 20px; border-top-left-radius: 6px; color: #e0d6c0; border: 1px solid var(--border-dim); line-height: 1.5; font-size: 0.95rem; word-break: break-word; backdrop-filter: blur(8px); }
     .message.user .message-content { background: var(--bubble-user); border-radius: 20px; border-top-right-radius: 6px; }
 
-    .status-badge { display: flex; align-items: center; gap: 10px; padding: 8px 18px; background: #1a1a00; border-radius: 30px; width: fit-content; margin-bottom: 12px; border: 1px solid var(--accent); color: var(--accent); }
     .typing-indicator { display: flex; gap: 6px; padding: 0.8rem 1.5rem; background: var(--bubble-assistant); border-radius: 20px; width: fit-content; border: 1px solid var(--border-dim); }
     .typing-indicator span { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: bounce 1.4s infinite; }
     @keyframes bounce { 0%,80%,100%{ transform:scale(0.7); opacity:0.4; } 40%{ transform:scale(1); opacity:1; } }
@@ -77,12 +76,10 @@
     .send-btn { background: var(--accent); color: #0b0b0f; box-shadow: 0 6px 14px #e6b80040; }
     .stop-btn { background: #c01030; color: white; box-shadow: 0 6px 14px #c0103080; }
 
-    .search-results, .generated-image { margin-top: 1rem; border-top: 1px solid var(--border-dim); padding-top: 1rem; }
+    .search-results { margin-top: 1rem; border-top: 1px solid var(--border-dim); padding-top: 1rem; }
     .search-result-card { display: flex; align-items: flex-start; gap: 12px; padding: 12px; background: #1a1a22; border-radius: 14px; margin-bottom: 10px; border: 1px solid #2a2a30; }
     .favicon { width: 20px; height: 20px; border-radius: 4px; }
     .result-title { font-weight: 600; color: var(--accent); text-decoration: none; }
-    .generated-image img { max-width: 100%; border-radius: 18px; margin-top: 12px; border: 1px solid var(--border-dim); display: block; }
-    .download-link { display: inline-block; margin-top: 10px; color: var(--accent); }
 
     #image-input { display: none; }
     .limit-message { text-align: center; margin-top: 6px; color: var(--accent); font-size: 0.85rem; }
@@ -129,13 +126,12 @@
 <script>
   (function(){
     "use strict";
-    // ✅ YOUR NEW OPENROUTER API KEY
-    const OPENROUTER_KEY = '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';
-    const POLLINATIONS_KEY = 'sk_Rd6a55zG1M2Wds96IT5599Hx302vtUYg';
+    // ✅ YOUR VALID OPENROUTER API KEY
+    const OPENROUTER_KEY = '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';
     const BRAVE_KEY = 'BSAq6tL8uO4JXiBQyRqRjRQ3Qy3Qy3Q';
     const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
     const LIMIT = 20;
-    const STORAGE_KEY = 'redknowledge_live_final';
+    const STORAGE_KEY = 'redknowledge_final';
 
     let conversations = [], activeId = null, usage = { count:0, date:new Date().toDateString() };
     let imageBase64 = null;
@@ -164,7 +160,7 @@
       if(s){ try{ const d=JSON.parse(s); conversations=d.conversations||[]; usage=d.usage||{count:0,date:new Date().toDateString()}; activeId=d.activeId||null; }catch(e){} }
       if(usage.date!==new Date().toDateString()) usage={count:0,date:new Date().toDateString()};
       if(!conversations.length) {
-        const welcomeMsg = { role:'assistant', content:'👋 Hello! I am **RedKnowledge**, now fully live with OpenRouter. I can search the web, generate images, and more.' };
+        const welcomeMsg = { role:'assistant', content:'👋 Hello! I am **RedKnowledge**. I can search the web and answer questions. How can I help?' };
         const newConv = { id:Date.now()+'', title:'Welcome', messages:[welcomeMsg] };
         conversations = [newConv]; activeId = newConv.id;
       } else if(!activeId||!conversations.find(c=>c.id===activeId)) activeId = conversations[0].id;
@@ -212,11 +208,6 @@
           });
           w.appendChild(rDiv);
         }
-        if(m.generatedImage) {
-          const imgDiv=document.createElement('div'); imgDiv.className='generated-image';
-          imgDiv.innerHTML = `<img src="${m.generatedImage.url}" alt="Generated"><br><a class="download-link" href="${m.generatedImage.url}" download>⬇ Download Image</a>`;
-          w.appendChild(imgDiv);
-        }
         const content=document.createElement('div'); content.className='message-content';
         content.innerHTML = isUser ? m.content : marked.parse(m.content);
         w.appendChild(content); div.appendChild(w); chatMessages.appendChild(div);
@@ -237,30 +228,13 @@
       return [{ title: `${query} - Wikipedia`, url: `https://en.wikipedia.org/wiki/${encodeURIComponent(query)}`, snippet: 'Encyclopedia article.' }];
     }
 
-    async function generateImage(prompt, signal) {
-      try {
-        const resp = await fetch('https://api.pollinations.ai/v1/images/generations', {
-          method: 'POST',
-          headers: { 'Authorization': `Bearer ${POLLINATIONS_KEY}`, 'Content-Type': 'application/json' },
-          body: JSON.stringify({ prompt, model: 'flux', width: 1024, height: 1024 }),
-          signal
-        });
-        if(resp.ok) {
-          const data = await resp.json();
-          return { url: data.data[0].url };
-        }
-      } catch(e) {}
-      return { url: `https://via.placeholder.com/1024x1024/1a1a22/e6b800?text=${encodeURIComponent(prompt.slice(0,30))}` };
-    }
-
     const TOOLS = [
-      { type:'function', function:{ name:'web_search', description:'Search the web', parameters:{ type:'object', properties:{ query:{ type:'string' } }, required:['query'] } } },
-      { type:'function', function:{ name:'generate_image', description:'Generate an image', parameters:{ type:'object', properties:{ prompt:{ type:'string' } }, required:['prompt'] } } }
+      { type:'function', function:{ name:'web_search', description:'Search the web for current information', parameters:{ type:'object', properties:{ query:{ type:'string' } }, required:['query'] } } }
     ];
 
     async function streamChat(messages, signal) {
       const model = document.getElementById('model-select').value;
-      const sys = `You are RedKnowledge, a smart assistant. Always identify yourself as RedKnowledge. Use web_search for real-time info and generate_image for images. Today is ${new Date().toLocaleString()}.`;
+      const sys = `You are RedKnowledge, a smart assistant. Always identify yourself as RedKnowledge. Use web_search for real-time info. Today is ${new Date().toLocaleString()}.`;
       const payload = {
         model,
         messages: [{ role:'system', content:sys }, ...messages.map(m=>({ role:m.role, content:m.content }))],
@@ -345,13 +319,8 @@
       currentAbortController = new AbortController();
       setProcessingState(true);
       
-      const isImage = /generate|create|draw|paint|picture|image|art|bild|imagen/i.test(prompt);
       const statusDiv = document.createElement('div'); statusDiv.className='message'; statusDiv.id='typing';
-      if(isImage) {
-        statusDiv.innerHTML = `<div class="message-avatar"><i class="fas fa-robot"></i></div><div class="status-badge"><i class="fas fa-paint-brush"></i> Generating image…</div>`;
-      } else {
-        statusDiv.innerHTML = `<div class="message-avatar"><i class="fas fa-robot"></i></div><div class="typing-indicator"><span></span><span></span><span></span></div>`;
-      }
+      statusDiv.innerHTML = `<div class="message-avatar"><i class="fas fa-robot"></i></div><div class="typing-indicator"><span></span><span></span><span></span></div>`;
       chatMessages.appendChild(statusDiv);
       chatMessages.scrollTop = chatMessages.scrollHeight;
       
@@ -359,7 +328,7 @@
         const result = await streamChat(getActive().messages, currentAbortController.signal);
         document.getElementById('typing')?.remove();
         let final = result.content || '';
-        let searchResults = null, generatedImage = null;
+        let searchResults = null;
         if(result.toolCalls?.length) {
           for(const tc of result.toolCalls) {
             if(tc.function.name==='web_search') {
@@ -367,15 +336,11 @@
               searchResults = await performWebSearch(args.query || prompt, currentAbortController.signal);
               final = final || `Here's what I found:`; 
               final += `\n\n` + searchResults.map((r,i)=>`[${i+1}] ${r.title}`).join('\n');
-            } else if(tc.function.name==='generate_image') {
-              let args={}; try { args=JSON.parse(tc.function.arguments); } catch { args={ prompt }; }
-              generatedImage = await generateImage(args.prompt || prompt, currentAbortController.signal);
-              final = final || `Here's your image!`;
             }
           }
         }
         if(!final) final = "I've processed your request.";
-        addMessage('assistant', final, { reasoning: result.reasoning, searchResults, generatedImage });
+        addMessage('assistant', final, { reasoning: result.reasoning, searchResults });
       } catch(e) {
         document.getElementById('typing')?.remove();
         if(e.name === 'AbortError') addMessage('assistant', '⏹️ Request cancelled.');
