@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>RedKnowledge · Mobile Fixed</title>
+  <title>RedKnowledge ·</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -14,27 +14,8 @@
     body { font-family: 'Inter', sans-serif; background: #0b0b0f; color: #f0e6d2; display: flex; height: 100vh; overflow: hidden; }
     :root { --accent: #e6b800; --accent-light: #ffd633; --border-dim: rgba(230,184,0,0.2); --sidebar-bg: #0e0e12; --bubble-user: #1e1e24; --bubble-assistant: #16161c; }
 
-    /* Hamburger menu */
-    .mobile-menu-btn {
-      display: none;
-      position: fixed;
-      top: 12px;
-      left: 12px;
-      z-index: 101;
-      background: rgba(20, 20, 28, 0.95);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--border-dim);
-      color: var(--accent);
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-    }
+    .mobile-menu-btn { display: none; position: fixed; top: 12px; left: 12px; z-index: 101; background: rgba(20,20,28,0.95); backdrop-filter: blur(12px); border: 1px solid var(--border-dim); color: var(--accent); width: 48px; height: 48px; border-radius: 16px; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
     .mobile-menu-btn i { font-size: 1.6rem; }
-
     @media (max-width: 700px) {
       .sidebar { position: fixed; left: -100%; top: 0; bottom: 0; z-index: 100; transition: left 0.3s; width: 280px; box-shadow: 5px 0 25px rgba(0,0,0,0.5); }
       .sidebar.open { left: 0; }
@@ -43,13 +24,13 @@
       .chat-messages { padding: 0.75rem !important; }
       .message { max-width: 95% !important; }
       .chat-header { padding: 0.75rem 1rem !important; }
-      .chat-input-container { padding: 0.75rem 1rem 1rem !important; }
+      .chat-input-container { padding: 0.5rem 0.75rem 0.75rem !important; }
       .input-wrapper { padding: 0.25rem 0.25rem 0.25rem 1rem !important; border-radius: 36px !important; }
-      .input-wrapper input { padding: 0.7rem 0 !important; font-size: 16px !important; } /* prevent zoom */
+      .input-wrapper input { padding: 0.7rem 0 !important; font-size: 16px !important; }
       .input-actions { gap: 2px !important; }
       .model-select-sm { padding: 6px 8px !important; font-size: 0.7rem !important; }
       .attach-btn { padding: 8px !important; }
-      .send-btn, .stop-btn { width: 44px !important; height: 44px !important; }
+      .send-btn, .stop-btn { width: 44px !important; height: 44px !important; min-width: 44px; }
     }
 
     .sidebar { width: 280px; background: var(--sidebar-bg); border-right: 1px solid var(--border-dim); display: flex; flex-direction: column; height: 100vh; backdrop-filter: blur(12px); }
@@ -92,7 +73,7 @@
     .model-select-sm { background: transparent; border: 1px solid var(--border-dim); color: #c0b8a8; padding: 6px 10px; border-radius: 24px; font-size: 0.75rem; outline: none; backdrop-filter: blur(4px); }
     .model-select-sm option { background: #0e0e12; }
     .attach-btn { background: transparent; border: none; color: #a0a0a0; padding: 10px; cursor: pointer; border-radius: 50%; }
-    .send-btn, .stop-btn { width: 46px; height: 46px; border-radius: 46px; cursor: pointer; display: flex; align-items: center; justify-content: center; border: none; }
+    .send-btn, .stop-btn { width: 46px; height: 46px; border-radius: 46px; cursor: pointer; display: flex; align-items: center; justify-content: center; border: none; flex-shrink: 0; }
     .send-btn { background: var(--accent); color: #0b0b0f; box-shadow: 0 6px 14px #e6b80040; }
     .stop-btn { background: #c01030; color: white; box-shadow: 0 6px 14px #c0103080; }
 
@@ -153,7 +134,7 @@
     const BRAVE_KEY = 'BSAq6tL8uO4JXiBQyRqRjRQ3Qy3Qy3Q';
     const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
     const LIMIT = 20;
-    const STORAGE_KEY = 'redknowledge_mobile_fixed';
+    const STORAGE_KEY = 'redknowledge_full_or';
 
     let conversations = [], activeId = null, usage = { count:0, date:new Date().toDateString() };
     let imageBase64 = null;
@@ -182,7 +163,7 @@
       if(s){ try{ const d=JSON.parse(s); conversations=d.conversations||[]; usage=d.usage||{count:0,date:new Date().toDateString()}; activeId=d.activeId||null; }catch(e){} }
       if(usage.date!==new Date().toDateString()) usage={count:0,date:new Date().toDateString()};
       if(!conversations.length) {
-        const welcomeMsg = { role:'assistant', content:'👋 Hello! I am **RedKnowledge**. I can search the web, generate images, and more.' };
+        const welcomeMsg = { role:'assistant', content:'👋 Hello! I am **RedKnowledge**, powered by OpenRouter. I can search the web, generate images, and more.' };
         const newConv = { id:Date.now()+'', title:'Welcome', messages:[welcomeMsg] };
         conversations = [newConv]; activeId = newConv.id;
       } else if(!activeId||!conversations.find(c=>c.id===activeId)) activeId = conversations[0].id;
@@ -278,31 +259,65 @@
 
     async function streamChat(messages, signal) {
       const model = document.getElementById('model-select').value;
-      const sys = `You are RedKnowledge, a smart assistant. Use web_search for real-time info and generate_image for images. Today is ${new Date().toLocaleString()}.`;
-      const payload = { model, messages: [{ role:'system', content:sys }, ...messages.map(m=>({ role:m.role, content:m.content }))], stream: true, temperature:0.7, max_tokens:800, tools: TOOLS };
+      const sys = `You are RedKnowledge, a smart assistant. Always identify yourself as RedKnowledge. Use web_search for real-time info and generate_image for images. Today is ${new Date().toLocaleString()}.`;
+      
+      // OpenRouter full payload with provider preferences and fallbacks
+      const payload = {
+        model,
+        models: [model, 'openai/gpt-4o', 'anthropic/claude-sonnet-4.5'], // fallback models
+        messages: [{ role:'system', content:sys }, ...messages.map(m=>({ role:m.role, content:m.content }))],
+        stream: true,
+        temperature: 0.7,
+        max_tokens: 1200,
+        tools: TOOLS,
+        tool_choice: 'auto',
+        include_reasoning: true,
+        provider: {
+          order: ['OpenAI', 'Anthropic', 'Google'],
+          allow_fallbacks: true,
+          require_parameters: true
+        },
+        transforms: ['middle-out'] // optional prompt optimization
+      };
+      
       if(imageBase64) {
         payload.messages = payload.messages.map(m=> m.role==='user' && m.content===messages[messages.length-1].content ? { role:'user', content:[{ type:'text', text:m.content }, { type:'image_url', image_url:{ url:imageBase64 } }] } : m );
       }
-      const res = await fetch(OPENROUTER_URL, { method:'POST', headers:{ Authorization:`Bearer ${OPENROUTER_KEY}`, 'Content-Type':'application/json' }, body:JSON.stringify(payload), signal });
-      if(!res.ok) throw new Error((await res.json()).error?.message||'API error');
+      
+      const res = await fetch(OPENROUTER_URL, {
+        method:'POST',
+        headers:{ Authorization:`Bearer ${OPENROUTER_KEY}`, 'Content-Type':'application/json', 'HTTP-Referer': window.location.origin, 'X-Title': 'RedKnowledge' },
+        body:JSON.stringify(payload),
+        signal
+      });
+      
+      if(!res.ok) { const err = await res.json(); throw new Error(err.error?.message || 'API error'); }
+      
       const reader = res.body.getReader(), decoder = new TextDecoder();
-      let content='', toolCalls=[];
+      let content='', reasoning='', toolCalls=[];
+      
       while(true) {
         const {done, value} = await reader.read(); if(done) break;
         const lines = decoder.decode(value, {stream:true}).split('\n');
         for(const line of lines) {
           if(!line.startsWith('data: ')) continue;
           const data = line.slice(6); if(data==='[DONE]') continue;
-          try { const json=JSON.parse(data); const delta=json.choices?.[0]?.delta; if(delta?.content) content+=delta.content; if(delta?.tool_calls) { 
-            delta.tool_calls.forEach((tc, idx) => {
-              if(!toolCalls[idx]) toolCalls[idx] = { id: tc.id, function: { name: tc.function?.name || '', arguments: '' } };
-              if(tc.function?.name) toolCalls[idx].function.name = tc.function.name;
-              if(tc.function?.arguments) toolCalls[idx].function.arguments += tc.function.arguments;
-            });
-          }} catch(e) {}
+          try {
+            const json = JSON.parse(data);
+            const delta = json.choices?.[0]?.delta;
+            if(delta?.reasoning) reasoning += delta.reasoning;
+            if(delta?.tool_calls) {
+              delta.tool_calls.forEach((tc, idx) => {
+                if(!toolCalls[idx]) toolCalls[idx] = { id: tc.id, type: 'function', function: { name: tc.function?.name || '', arguments: '' } };
+                if(tc.function?.name) toolCalls[idx].function.name = tc.function.name;
+                if(tc.function?.arguments) toolCalls[idx].function.arguments += tc.function.arguments;
+              });
+            }
+            if(delta?.content) content += delta.content;
+          } catch(e) {}
         }
       }
-      return { content, toolCalls };
+      return { content, reasoning, toolCalls };
     }
 
     function setProcessingState(processing) {
@@ -357,13 +372,16 @@
       try {
         const result = await streamChat(getActive().messages, currentAbortController.signal);
         document.getElementById('typing')?.remove();
-        let final = result.content, searchResults = null, generatedImage = null;
+        let final = result.content || '';
+        let searchResults = null, generatedImage = null;
+        
         if(result.toolCalls?.length) {
           for(const tc of result.toolCalls) {
             if(tc.function.name==='web_search') {
               let args={}; try { args=JSON.parse(tc.function.arguments); } catch { args={ query: prompt }; }
               searchResults = await performWebSearch(args.query || prompt, currentAbortController.signal);
-              final = final || `Here's what I found:`; final += `\n\n` + searchResults.map((r,i)=>`[${i+1}] ${r.title}`).join('\n');
+              final = final || `Here's what I found:`; 
+              final += `\n\n` + searchResults.map((r,i)=>`[${i+1}] ${r.title}`).join('\n');
             } else if(tc.function.name==='generate_image') {
               let args={}; try { args=JSON.parse(tc.function.arguments); } catch { args={ prompt }; }
               generatedImage = await generateImage(args.prompt || prompt, currentAbortController.signal);
@@ -371,7 +389,8 @@
             }
           }
         }
-        addMessage('assistant', final || 'Done.', { searchResults, generatedImage });
+        if(!final) final = "I've processed your request.";
+        addMessage('assistant', final, { reasoning: result.reasoning, searchResults, generatedImage });
       } catch(e) {
         document.getElementById('typing')?.remove();
         if(e.name === 'AbortError') addMessage('assistant', '⏹️ Request cancelled.');
@@ -393,7 +412,7 @@
     sendBtn.addEventListener('click', handleSend);
     userInput.addEventListener('keypress', e=>{ if(e.key==='Enter' && !isProcessing){ e.preventDefault(); handleSend(); } });
     newChatBtn.addEventListener('click', ()=>{
-      const c={ id:Date.now()+'', title:'New chat', messages:[{ role:'assistant', content:'👋 Hello! How can I help?' }] };
+      const c={ id:Date.now()+'', title:'New chat', messages:[{ role:'assistant', content:'👋 Hello! I am RedKnowledge, powered by OpenRouter. How can I help?' }] };
       conversations.push(c); activeId=c.id; renderConvs(); renderMsgs(); saveData();
     });
 
